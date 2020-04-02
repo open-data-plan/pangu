@@ -1,0 +1,35 @@
+{
+  "name": "@opd/eslint-config-pangu",
+  "version": "0.0.0",
+  "description": "eslint config used by react app in pangu",
+  "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
+  "homepage": "https://github.com/open-data-plan/pangu/packages/eslint-config-pangu",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:open-data-plan/pangu.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "@opd/eslint-config-typescript": "^0.0.0"
+  },
+  "peerDependencies": {
+    "prettier": "^2.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.2",
+    "typescript": "^3.8.3"
+  }
+}

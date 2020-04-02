@@ -1,0 +1,325 @@
+const path = require('path')
+const fs = require('fs')
+const webpack = require('webpack')
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+// const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const TerserWebpackPlugin = require('terser-webpack-plugin')
+const WebpackBar = require('webpackbar')
+const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
+const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin')
+const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
+const WebpackManifestPlugin = require('webpack-manifest-plugin')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const { argv } = require('yargs')
+const postcssConfig = require('./postcss.config')
+const { srcDir, workDir, outputDir, publicDir } = require('../utils/paths')
+const app = require('../utils/app')
+const theme = require('../utils/theme')
+const globalsConfig = require('./globals.config')
+
+const PRODUCT = process.env.NODE_ENV === 'production'
+const DEV = process.env.NODE_ENV === 'development'
+
+const publicPath = (process.env.PUBLIC_PATH || './').trim()
+
+// generate css loader for specific lang
+function getCSSLoader(lang, modules) {
+  let loaders = []
+  if (DEV) {
+    loaders = [
+      {
+        loader: 'style-loader',
+      },
+    ]
+  } else {
+    loaders = [MiniCSSExtractPlugin.loader]
+  }
+  if (modules) {
+    loaders.push('css-modules-typescript-loader')
+  }
+  loaders = [
+    ...loaders,
+    {
+      loader: 'css-loader',
+      options: {
+        importLoaders: lang === 'css' ? 1 : 2,
+        sourceMap: true,
+        modules: modules
+          ? {
+              localIdentName: DEV ? '[path][name]__[local]' : '[hash:base64]',
+            }
+          : false,
+        localsConvention: 'camelCaseOnly',
+      },
+    },
+    {
+      loader: 'postcss-loader',
+      options: postcssConfig,
+    },
+  ]
+  if (lang === 'less') {
+    loaders.push({
+      loader: 'less-loader',
+      options: {
+        sourceMap: true,
+        javascriptEnabled: true,
+        modifyVars: theme,
+      },
+    })
+  }
+  return loaders
+}
+
+const config = {
+  mode: PRODUCT ? 'production' : 'development',
+  entry: {
+    app: PRODUCT
+      ? [path.resolve(srcDir, 'index.tsx')]
+      : [
+          require.resolve('react-hot-loader/patch'),
+          require.resolve('react-dev-utils/webpackHotDevClient'), // for HMR
+          path.resolve(srcDir, 'index.tsx'),
+        ],
+  },
+  output: {
+    publicPath,
+    path: outputDir,
+    filename: PRODUCT ? 'static/js/[name].[contenthash].js' : '[name].js',
+    chunkFilename: PRODUCT ? 'static/js/[id].[contenthash].js' : '[id].js',
+  },
+  resolve: {
+    modules: ['node_modules'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.less'],
+    mainFields: ['module', 'main'],
+    alias: {
+      '@': srcDir,
+      'react-dom': '@hot-loader/react-dom',
+    },
+  },
+  devtool: PRODUCT ? 'source-map' : 'cheap-module-eval-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.(j|t)sx?$/,
+        include: [srcDir],
+        exclude: /node_modules/,
+        use: {
+          options: {
+            cache: true,
+            formatter: require.resolve('react-dev-utils/eslintFormatter'),
+            eslintPath: require.resolve('eslint'),
+            resolvePluginsRelativeTo: __dirname,
+          },
+          loader: 'eslint-loader',
+        },
+        enforce: 'pre',
+      },
+      {
+        test: /\.(j|t)sx?$/,
+        include: [srcDir],
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /.css$/,
+        exclude: /.module.css$/,
+        use: getCSSLoader('css'),
+      },
+      {
+        test: /.module.css$/,
+        use: getCSSLoader('css', true),
+      },
+      {
+        test: /.less$/,
+        exclude: /.module.less$/,
+        use: getCSSLoader('less'),
+      },
+      {
+        test: /.module.less$/,
+        use: getCSSLoader('less', true),
+      },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'static/assets/[name].[hash:8].[ext]',
+        },
+      },
+    ],
+  },
+  plugins: [
+    new WebpackBar({
+      name: 'Pangu',
+      minimal: true,
+      compiledIn: true,
+    }),
+    new webpack.WatchIgnorePlugin([/(css|less)\.d\.ts$/]),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.DefinePlugin(globalsConfig),
+    new ModuleNotFoundPlugin(),
+    new WebpackManifestPlugin({
+      fileName: 'asset-manifest.json',
+      publicPath,
+      generate: (seed, files, entrypoints) => {
+        const manifestFiles = files.reduce((manifest, file) => {
+          manifest[file.name] = file.path
+          return manifest
+        }, seed)
+
+        // const entrypointFiles = entrypoints.main.filter(
+        //   fileName => !fileName.endsWith('.map')
+        // )
+
+        return {
+          files: manifestFiles,
+          // entrypoints: entrypointFiles,
+        }
+      },
+    }),
+    new webpack.LoaderOptionsPlugin({
+      debug: true,
+      options: {
+        context: __dirname,
+      },
+    }),
+    // new FriendlyErrorsPlugin(),
+  ],
+  optimization: {
+    minimize: PRODUCT,
+    minimizer: [
+      new TerserWebpackPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true, // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          map: {
+            inline: false,
+          },
+        },
+      }),
+    ],
+    splitChunks: {
+      chunks: 'all',
+    },
+    runtimeChunk: true,
+  },
+}
+
+if (argv.tsCheck) {
+  config.plugins.push(
+    new ForkTsCheckerWebpackPlugin({
+      async: DEV,
+      useTypescriptIncrementalApi: true,
+      checkSyntacticErrors: true,
+      watch: srcDir,
+      silent: true,
+      eslint: true,
+      formatter: PRODUCT ? typescriptFormatter : undefined,
+    })
+  )
+}
+
+if (app.logo && fs.existsSync(path.resolve(workDir, app.logo))) {
+  config.plugins.push(
+    new FaviconsWebpackPlugin({
+      logo: path.resolve(workDir, app.logo),
+      cache: true,
+      publicPath,
+      prefix: 'icons',
+      inject: true,
+      favicons: {
+        appName: app.appName,
+        icons: {
+          favicons: true,
+          android: true,
+          appleIcon: true,
+          appleStartup: true,
+          firefox: true,
+          windows: true,
+          coast: false,
+          yandex: false,
+        },
+      },
+    })
+  )
+}
+
+if (DEV) {
+  config.plugins.push(new webpack.HotModuleReplacementPlugin())
+  config.plugins.push(
+    new WatchMissingNodeModulesPlugin(path.resolve(workDir, 'node_modules'))
+  )
+}
+
+if (PRODUCT) {
+  config.plugins.push(
+    new MiniCSSExtractPlugin({
+      ignoreOrder: true,
+      filename: 'static/css/[name].[contenthash].css',
+      chunkFilename: 'static/css/[id].[contenthash].css',
+    })
+  )
+  config.plugins.push(
+    new WorkboxWebpackPlugin.GenerateSW({
+      clientsClaim: true,
+      exclude: [/\.map$/, /asset-manifest\.json$/],
+      // navigateFallback: 'index.html',
+      // navigateFallbackBlacklist: [
+      //   // Exclude URLs starting with /_, as they're likely an API call
+      //   new RegExp('^/_'),
+      //   // Exclude URLs containing a dot, as they're likely a resource in
+      //   // public/ and not a SPA route
+      //   new RegExp('/[^/]+\\.[^/]+$'),
+      // ],
+    })
+  )
+
+  const hasPublicDir = fs.existsSync(publicDir)
+
+  if (hasPublicDir) {
+    config.plugins.push(
+      new CopyWebpackPlugin([
+        {
+          from: publicDir,
+          to: outputDir,
+          ignore: ['*.ejs', '*.md'],
+        },
+      ])
+    )
+  }
+
+  if (argv.ana) {
+    // bundle analyzer
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        // generateStatsFile: true
+      })
+    )
+  }
+
+  // config.optimization.splitChunks.cacheGroups = {
+  //   styles: {
+  //     name: 'styles',
+  //     test: /\.css$/,
+  //     chunks: 'all',
+  //     enforce: true
+  //   }
+  // }
+}
+
+module.exports = config

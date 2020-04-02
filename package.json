@@ -1,0 +1,56 @@
+{
+  "name": "pangu",
+  "version": "0.0.0",
+  "description": "tools for pangu",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ./packages --ext=.js",
+    "lint:fix": "eslint ./packages --ext=.js --fix",
+    "release": "lerna publish --conventional-commits",
+    "build": "lerna run build",
+    "postinstall": "lerna bootstrap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:open-data-plan/pangu.git"
+  },
+  "keywords": [
+    "cli",
+    "react",
+    "redux"
+  ],
+  "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "husky": "^4.2.3",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": "./packages/prettier-config-pangu/lib/index.js"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "@opd/babel-preset-lib",
+  "version": "0.0.0",
+  "description": "babel preset used by ts lib in pangu",
+  "main": "lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:open-data-plan/pangu.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "keywords": [
+    "babel",
+    "preset",
+    "babel-preset",
+    "pangu",
+    "babel-preset-typescript"
+  ],
+  "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/open-data-plan/pangu/issues"
+  },
+  "homepage": "https://github.com/open-data-plan/pangu/packages/babel-preset-lib#readme",
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/helper-plugin-utils": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-typescript": "^7.9.0"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ]
+}

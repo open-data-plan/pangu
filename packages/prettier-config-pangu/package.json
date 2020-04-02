@@ -1,0 +1,28 @@
+{
+  "name": "@opd/prettier-config-pangu",
+  "version": "0.0.0",
+  "description": "prettier config used by react app in pangu",
+  "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
+  "homepage": "https://github.com/open-data-plan/pangu/packages/prettier-config-pangu",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:open-data-plan/pangu.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "prettier": "^2.0.2"
+  }
+}

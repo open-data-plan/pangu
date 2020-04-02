@@ -1,0 +1,48 @@
+{
+  "name": "@opd/create-pangu",
+  "version": "0.0.0",
+  "description": "scaffold tool for pangu",
+  "keywords": [
+    "cli",
+    "scaffold",
+    "pangu"
+  ],
+  "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
+  "homepage": "https://github.com/open-data-plan/pangu",
+  "license": "MIT",
+  "main": "bin/index.js",
+  "bin": {
+    "create-pangu": "bin/index.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "bin"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-data-plan/pangu.git#readme"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^3.0.0",
+    "commander": "^5.0.0",
+    "decompress": "^4.2.0",
+    "inquirer": "^7.1.0",
+    "lodash": "^4.17.11",
+    "progress": "^2.0.3",
+    "signale": "^1.4.0",
+    "string-template": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=8.10.0",
+    "npm": ">=6",
+    "yarn": ">=1"
+  }
+}

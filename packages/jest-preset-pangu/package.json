@@ -1,0 +1,36 @@
+{
+  "name": "@opd/jest-preset-pangu",
+  "version": "0.0.0",
+  "description": "jest preset config used in pangu",
+  "keywords": [
+    "jest",
+    "preset",
+    "config",
+    "pangu"
+  ],
+  "author": "kagawagao <kingsongao1221@gmail.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib",
+    "jest-preset.js"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:open-data-plan/pangu.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "babel-jest": "^25.2.4",
+    "identity-obj-proxy": "^3.0.0"
+  }
+}
