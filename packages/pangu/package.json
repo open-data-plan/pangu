@@ -1,6 +1,6 @@
 {
   "name": "@opd/pangu",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "develop tool for ui-engine project",
   "keywords": [
     "cli",
@@ -32,12 +32,12 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@opd/babel-preset-app": "^0.0.0",
-    "@opd/eslint-config-pangu": "^0.0.0",
-    "@opd/jest-preset-pangu": "^0.0.0",
-    "@opd/prettier-config-pangu": "^0.0.0",
-    "@opd/stylelint-config-pangu": "^0.0.0",
     "@hot-loader/react-dom": "^16.13.0",
+    "@opd/babel-preset-app": "^0.1.0",
+    "@opd/eslint-config-pangu": "^0.1.0",
+    "@opd/jest-preset-pangu": "^0.1.0",
+    "@opd/prettier-config-pangu": "^0.1.0",
+    "@opd/stylelint-config-pangu": "^0.1.0",
     "@types/classnames": "^2.2.10",
     "@types/history": "^4.7.4",
     "@types/jest": "^25.1.4",
