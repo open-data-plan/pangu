@@ -1,11 +1,11 @@
-# `@opd/jest-config-pangu`
+# `@opd/jest-preset-pangu`
 
-> jest config used in pangu
+> jest preset used in pangu
 
 ## Usage
 
 ```js
 module.exports = {
-  preset: 'jest-preset-pangu',
+  preset: '@opd/jest-preset-pangu',
 }
 ```
