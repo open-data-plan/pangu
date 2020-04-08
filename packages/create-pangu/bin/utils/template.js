@@ -2,57 +2,54 @@ const templates = {
   desktop: {
     default: {
       url:
-        'https://github.com/open-data-plan/desktop-template/repository/archive',
+        'https://github.com/open-data-plan/desktop-template/archive/master.zip',
       des: 'SPA - single page application',
     },
     simple: {
       url:
-        'https://github.com/open-data-plan/desktop-template/repository/simple/archive.zip',
+        'https://github.com/open-data-plan/desktop-template/archive/simple.zip',
       des: 'simple - simple react application',
     },
     mpa: {
-      url:
-        'https://github.com/open-data-plan/desktop-template/repository/mpa/archive.zip',
+      url: 'https://github.com/open-data-plan/desktop-template/archive/mpa.zip',
       des: 'MPA - multi page application',
     },
   },
   mobile: {
     default: {
       url:
-        'https://github.com/open-data-plan/mobile-template/repository/archive',
+        'https://github.com/open-data-plan/mobile-template/archive/master.zip',
       des: 'SPA - single page application',
     },
     simple: {
       url:
-        'https://github.com/open-data-plan/mobile-template/repository/simple/archive.zip',
+        'https://github.com/open-data-plan/mobile-template/archive/simple.zip',
       des: 'simple - simple react application',
     },
     mpa: {
-      url:
-        'https://github.com/open-data-plan/mobile-template/repository/mpa/archive.zip',
+      url: 'https://github.com/open-data-plan/mobile-template/archive/mpa.zip',
       des: 'MPA - multi page application',
     },
   },
   component: {
     default: {
       url:
-        'https://github.com/open-data-plan/component-template/repository/archive',
+        'https://github.com/open-data-plan/component-template/archive/master.zip',
       des: 'Individual component template',
     },
     lerna: {
       url:
-        'https://github.com/open-data-plan/component-template/repository/lerna/archive.zip',
+        'https://github.com/open-data-plan/component-template/archive/lerna.zip',
       des: 'Template for mono repo',
     },
   },
   lib: {
     default: {
-      url: 'https://github.com/open-data-plan/lib-template/repository/archive',
+      url: 'https://github.com/open-data-plan/lib-template/archive/master.zip',
       des: 'Individual lib template',
     },
     lerna: {
-      url:
-        'https://github.com/open-data-plan/lib-template/repository/lerna/archive.zip',
+      url: 'https://github.com/open-data-plan/lib-template/archive/lerna.zip',
       des: 'Template for mono repo',
     },
   },
