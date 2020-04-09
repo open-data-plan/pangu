@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/open-data-plan/pangu/compare/v1.0.0...v1.1.0) (2020-04-09)
+
+
+### Features
+
+* update template url ([5a99bfd](https://github.com/open-data-plan/pangu/commit/5a99bfd2f53e31489c2f0ed0b593337a634d8eed))
+
+
+
+
+
 # 0.1.0 (2020-04-02)
 
 
