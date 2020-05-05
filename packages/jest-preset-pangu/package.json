@@ -30,7 +30,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "babel-jest": "^25.3.0",
+    "babel-jest": "^26.0.1",
     "identity-obj-proxy": "^3.0.0"
   }
 }
