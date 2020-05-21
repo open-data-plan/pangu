@@ -1,3 +1,7 @@
+// load env first
+require('dotenv').config()
+
+// apply NODE_ENV
 process.env.NODE_ENV = 'development'
 
 const program = require('commander')
@@ -7,6 +11,11 @@ const signale = require('signale')
 const chokidar = require('chokidar')
 const { themePath, appPath, tplPath } = require('./utils/paths')
 const { fork } = require('child_process')
+const updateNotifier = require('update-notifier')
+const pkg = require('../package.json')
+
+// notify for update
+updateNotifier({ pkg }).notify()
 
 /**
  * Usage
@@ -28,7 +37,7 @@ checkBrowsers(process.cwd(), isInteractive)
   .then(() => {
     return choosePort(HOST, DEFAULT_PORT)
   })
-  .then(port => {
+  .then((port) => {
     if (!port) {
       return null
     }
@@ -47,7 +56,7 @@ checkBrowsers(process.cwd(), isInteractive)
       child = start(port, HOST)
     })
   })
-  .catch(err => {
+  .catch((err) => {
     if (err && err.message) {
       console.log(err.message)
     }
@@ -62,14 +71,14 @@ function start(port, host) {
       stdio: 'inherit',
     }
   )
-  ;[('SIGINT', 'SIGTERM')].forEach(function(sig) {
-    process.on(sig, function() {
+  ;[('SIGINT', 'SIGTERM')].forEach(function (sig) {
+    process.on(sig, function () {
       child.kill(sig)
       process.exit()
     })
   })
 
-  child.on('error', code => {
+  child.on('error', (code) => {
     process.exit(1)
   })
 

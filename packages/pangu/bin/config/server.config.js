@@ -2,9 +2,7 @@ const errorOverlayMiddleware = require('react-dev-utils/errorOverlayMiddleware')
 const evalSourceMapMiddleware = require('react-dev-utils/evalSourceMapMiddleware')
 const noopServiceWorkerMiddleware = require('react-dev-utils/noopServiceWorkerMiddleware')
 const ignoredFiles = require('react-dev-utils/ignoredFiles')
-const { srcDir, publicDir } = require('../utils/paths')
-
-const publicPath = (process.env.PUBLIC_PATH || '/').trim()
+const { srcDir, publicDir, publicPath } = require('../utils/paths')
 
 module.exports = (host, port) => ({
   port,

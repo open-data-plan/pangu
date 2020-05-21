@@ -37,6 +37,8 @@ if (fs.existsSync(path.resolve(srcDir, 'index.ejs'))) {
 
 const tplPath = tpl
 
+const publicPath = process.env.PUBLIC_PATH || '/'
+
 module.exports = {
   workDir,
   srcDir,
@@ -47,4 +49,5 @@ module.exports = {
   themePath,
   publicDir,
   outputDir,
+  publicPath,
 }

@@ -17,15 +17,19 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const { argv } = require('yargs')
 const postcssConfig = require('./postcss.config')
-const { srcDir, workDir, outputDir, publicDir } = require('../utils/paths')
+const {
+  srcDir,
+  workDir,
+  outputDir,
+  publicDir,
+  publicPath,
+} = require('../utils/paths')
 const app = require('../utils/app')
 const theme = require('../utils/theme')
 const globalsConfig = require('./globals.config')
 
 const PRODUCT = process.env.NODE_ENV === 'production'
 const DEV = process.env.NODE_ENV === 'development'
-
-const publicPath = (process.env.PUBLIC_PATH || './').trim()
 
 // generate css loader for specific lang
 function getCSSLoader(lang, modules) {
@@ -67,8 +71,10 @@ function getCSSLoader(lang, modules) {
       loader: 'less-loader',
       options: {
         sourceMap: true,
-        javascriptEnabled: true,
-        modifyVars: theme,
+        lessOptions: {
+          javascriptEnabled: true,
+          modifyVars: theme,
+        },
       },
     })
   }
@@ -151,11 +157,19 @@ const config = {
         use: getCSSLoader('less', true),
       },
       {
-        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        test: /\.(eot|ttf|woff|woff2)$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/assets/[name].[hash:8].[ext]',
+          name: 'static/images/[name].[hash:8].[ext]',
+        },
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'static/fonts/[name].[hash:8].[ext]',
         },
       },
     ],
@@ -172,7 +186,6 @@ const config = {
     new ModuleNotFoundPlugin(),
     new WebpackManifestPlugin({
       fileName: 'asset-manifest.json',
-      publicPath,
       generate: (seed, files, entrypoints) => {
         const manifestFiles = files.reduce((manifest, file) => {
           manifest[file.name] = file.path
@@ -239,7 +252,6 @@ if (app.logo && fs.existsSync(path.resolve(workDir, app.logo))) {
     new FaviconsWebpackPlugin({
       logo: path.resolve(workDir, app.logo),
       cache: true,
-      publicPath,
       prefix: 'icons',
       inject: true,
       favicons: {
@@ -293,13 +305,17 @@ if (PRODUCT) {
 
   if (hasPublicDir) {
     config.plugins.push(
-      new CopyWebpackPlugin([
-        {
-          from: publicDir,
-          to: outputDir,
-          ignore: ['*.ejs', '*.md'],
-        },
-      ])
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: publicDir,
+            to: outputDir,
+            globOptions: {
+              ignore: ['*.ejs', '*.md'],
+            },
+          },
+        ],
+      })
     )
   }
 

@@ -1,6 +1,7 @@
-// apply NODE_ENV first
+// load env first
+require('dotenv').config()
+// apply NODE_ENV
 process.env.NODE_ENV = 'production'
-
 const program = require('commander')
 const webpack = require('webpack')
 const webpackConfig = require('./config/webpack.config')
@@ -8,6 +9,11 @@ const rimraf = require('rimraf')
 const signale = require('signale')
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages')
 const printBuildError = require('react-dev-utils/printBuildError')
+const updateNotifier = require('update-notifier')
+const pkg = require('../package.json')
+
+// notify for update
+updateNotifier({ pkg }).notify()
 
 /**
  * Usage

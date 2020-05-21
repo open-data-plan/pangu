@@ -8,6 +8,11 @@ const enableDestroy = require('server-destroy')
 const signale = require('signale')
 const clearConsole = require('react-dev-utils/clearConsole')
 const { mockDir } = require('./utils/paths')
+const updateNotifier = require('update-notifier')
+const pkg = require('../package.json')
+
+// notify for update
+updateNotifier({ pkg }).notify()
 
 /**
  * Usage
