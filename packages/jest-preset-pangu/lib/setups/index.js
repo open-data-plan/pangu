@@ -1,1 +1,5 @@
-module.exports = [require.resolve('./match-media.js'), 'jest-canvas-mock']
+module.exports = [
+  require.resolve('./async.js'),
+  require.resolve('./match-media.js'),
+  'jest-canvas-mock',
+]
