@@ -47,36 +47,13 @@ module.exports = declare(
       env: {
         test: {
           presets: [
-            [
-              '@babel/preset-env',
-              {
-                targets: {
-                  browsers: 'last 2 versions, IE >= 11',
-                },
-              },
-            ],
+            '@babel/preset-env',
             '@babel/preset-typescript',
             '@babel/preset-react',
           ],
           plugins: [
-            [
-              'import',
-              {
-                libraryName: 'antd',
-                libraryDirectory: 'lib',
-                style: false,
-              },
-              'antd',
-            ],
-            [
-              'import',
-              {
-                libraryName: 'antd-mobile',
-                libraryDirectory: 'lib',
-                style: true,
-              },
-              'antd-mobile',
-            ],
+            ['import', false, 'antd'],
+            ['import', false, 'antd-mobile'],
             '@babel/plugin-proposal-class-properties',
           ],
         },

@@ -59,7 +59,11 @@ module.exports = declare(
             '@babel/preset-typescript',
             '@babel/preset-react',
           ],
-          plugins: ['@babel/plugin-proposal-class-properties'],
+          plugins: [
+            ['import', false, 'antd'],
+            ['import', false, 'antd-mobile'],
+            '@babel/plugin-proposal-class-properties',
+          ],
         },
         production: {
           plugins: [
