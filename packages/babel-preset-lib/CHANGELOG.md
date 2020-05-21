@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/open-data-plan/pangu/compare/v1.2.0...v1.3.0) (2020-05-21)
+
+
+### Bug Fixes
+
+* update babel config ([6a32f14](https://github.com/open-data-plan/pangu/commit/6a32f14e85c0ce506f70d5894abfc65c021a3f73))
+
+
+
+
+
 # [1.2.0](https://github.com/open-data-plan/pangu/compare/v1.1.0...v1.2.0) (2020-05-21)
 
 **Note:** Version bump only for package @opd/babel-preset-lib

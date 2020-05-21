@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/open-data-plan/pangu/compare/v1.2.0...v1.3.0) (2020-05-21)
+
+
+### Bug Fixes
+
+* remove extra package ([108273f](https://github.com/open-data-plan/pangu/commit/108273ff01f1fba78d0e08bba02180cb89e1776d))
+
+
+
+
+
 # [1.2.0](https://github.com/open-data-plan/pangu/compare/v1.1.0...v1.2.0) (2020-05-21)
 
 

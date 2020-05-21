@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/open-data-plan/pangu/compare/v1.2.0...v1.3.0) (2020-05-21)
+
+
+### Bug Fixes
+
+* remove extra package ([108273f](https://github.com/open-data-plan/pangu/commit/108273ff01f1fba78d0e08bba02180cb89e1776d))
+* update babel config ([6a32f14](https://github.com/open-data-plan/pangu/commit/6a32f14e85c0ce506f70d5894abfc65c021a3f73))
+
+
+### Features
+
+* add canvas support for default ([1827d84](https://github.com/open-data-plan/pangu/commit/1827d849c07860bd09c5543317aebc8e51d6e417))
+
+
+
+
+
 # [1.2.0](https://github.com/open-data-plan/pangu/compare/v1.1.0...v1.2.0) (2020-05-21)
 
 
