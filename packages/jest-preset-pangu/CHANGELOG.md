@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/open-data-plan/pangu/compare/v1.3.0...v1.4.0) (2020-05-21)
+
+
+### Features
+
+* add async/await to default setup ([f79da07](https://github.com/open-data-plan/pangu/commit/f79da07a33689c9b9c8bd8f82ae8bc465467cf54))
+
+
+
+
+
 # [1.3.0](https://github.com/open-data-plan/pangu/compare/v1.2.0...v1.3.0) (2020-05-21)
 
 
