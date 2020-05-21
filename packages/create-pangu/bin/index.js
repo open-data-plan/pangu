@@ -62,7 +62,7 @@ program
   .version(pkg.version, '-v, --version')
   .arguments('<project-name>')
   .usage('<project-name> [options]')
-  .action(name => {
+  .action((name) => {
     projectName = name
   })
 
@@ -86,7 +86,7 @@ if (!projectName) {
 
 const isMonoRepo = fs.existsSync(path.resolve(process.cwd(), 'lerna.json'))
 
-const handleError = async error => {
+const handleError = async (error) => {
   console.log()
   error && console.error(error)
   // clean dest directory
@@ -137,7 +137,7 @@ const installPackage = () => {
   }
 }
 
-const updatePkg = async dest => {
+const updatePkg = async (dest) => {
   const pkgPath = `${dest}/package.json`
   const readmePath = `${dest}/README.md`
 
@@ -214,7 +214,7 @@ const downloadFiles = async (dest, template) => {
       'PRIVATE-TOKEN': '2TYVGhes2V78-kQ4XtDt',
     },
   })
-  req.on('response', async res => {
+  req.on('response', async (res) => {
     // broken
     if (res.statusCode >= 400) {
       signale.error(
@@ -235,7 +235,7 @@ const downloadFiles = async (dest, template) => {
       clear: true,
     })
 
-    res.on('data', chunk => {
+    res.on('data', (chunk) => {
       fs.appendFileSync(zipFileName, chunk)
       bar && bar.tick(chunk.length)
     })
@@ -258,14 +258,14 @@ const downloadFiles = async (dest, template) => {
     })
   })
 
-  req.on('error', async error => {
+  req.on('error', async (error) => {
     console.log(error)
     await handleError(error)
   })
 }
 
 const start = async () => {
-  let projectType = initProjectTypes.find(type => program[type])
+  let projectType = initProjectTypes.find((type) => program[type])
   if (!projectType) {
     const { type } = await inquirer.prompt({
       type: 'list',
@@ -302,7 +302,7 @@ const start = async () => {
         type: 'list',
         name: 'type',
         message: 'What type of project do you want to create?',
-        choices: Object.keys(template).map(key => ({
+        choices: Object.keys(template).map((key) => ({
           name: template[key].des,
           value: key,
         })),

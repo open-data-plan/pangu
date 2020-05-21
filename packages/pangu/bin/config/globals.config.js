@@ -10,7 +10,7 @@ const globalVars = {
   'process.env.APP_NAME': JSON.stringify(app.appName),
 }
 
-Object.keys(process.env).map(key => {
+Object.keys(process.env).map((key) => {
   if (!(`process.env.${key}` in globalVars)) {
     globalVars[`process.env.${key}`] = JSON.stringify(process.env[key])
   }

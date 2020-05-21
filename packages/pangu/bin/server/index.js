@@ -20,9 +20,9 @@ const isInteractive = process.stdout.isTTY
 const serverConfig = createServerConfig(host, port)
 const urls = prepareUrls('http', host, port)
 const devSocket = {
-  warnings: warnings =>
+  warnings: (warnings) =>
     devServer.sockWrite(devServer.sockets, 'warnings', warnings),
-  errors: errors => devServer.sockWrite(devServer.sockets, 'errors', errors),
+  errors: (errors) => devServer.sockWrite(devServer.sockets, 'errors', errors),
 }
 
 const compiler = createCompiler({
@@ -34,7 +34,7 @@ const compiler = createCompiler({
   useTypescript: true,
 })
 const devServer = new WebpackDevServer(compiler, serverConfig)
-devServer.listen(port, host, err => {
+devServer.listen(port, host, (err) => {
   if (err) {
     console.error(err)
     process.exit(1)
@@ -46,8 +46,8 @@ devServer.listen(port, host, err => {
     openBrowser(urls.localUrlForBrowser)
   })
 })
-;[('SIGINT', 'SIGTERM')].forEach(function(sig) {
-  process.on(sig, function() {
+;[('SIGINT', 'SIGTERM')].forEach(function (sig) {
+  process.on(sig, function () {
     devServer.close()
     process.exit()
   })

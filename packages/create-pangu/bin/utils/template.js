@@ -55,7 +55,7 @@ const templates = {
   },
 }
 
-const getTemplate = type => {
+const getTemplate = (type) => {
   return templates[type]
 }
 

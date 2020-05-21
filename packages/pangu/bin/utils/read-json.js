@@ -1,7 +1,7 @@
 const fs = require('fs')
 const { promisify } = require('util')
 
-const readJSONFile = async file => {
+const readJSONFile = async (file) => {
   if (!file) {
     throw new Error('Invalid File Path')
   }
@@ -14,7 +14,7 @@ const readJSONFile = async file => {
   return data
 }
 
-const readJSONFileSync = file => {
+const readJSONFileSync = (file) => {
   if (!file) {
     throw new Error('Invalid File Path')
   }
