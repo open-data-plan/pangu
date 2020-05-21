@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/open-data-plan/pangu/compare/v1.1.0...v1.2.0) (2020-05-21)
+
+
+### Features
+
+* support dotenv ([8dd6e7a](https://github.com/open-data-plan/pangu/commit/8dd6e7a61a29b9a6287006eefdf702ea5971f7bd))
+
+
+
+
+
 # [1.1.0](https://github.com/open-data-plan/pangu/compare/v1.0.0...v1.1.0) (2020-04-09)
 
 **Note:** Version bump only for package @opd/pangu

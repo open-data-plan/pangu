@@ -1,6 +1,6 @@
 {
   "name": "@opd/stylelint-config-pangu",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "stylelint config used by pangu",
   "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
   "homepage": "https://github.com/open-data-plan/pangu/packages/stylelint-config-pangu",
