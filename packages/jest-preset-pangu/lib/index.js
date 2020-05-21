@@ -2,6 +2,7 @@
 // https://jestjs.io/docs/en/configuration.html
 
 const path = require('path')
+const setupFiles = require('./setups')
 
 module.exports = {
   // All imported modules in your tests should be mocked automatically
@@ -93,7 +94,7 @@ module.exports = {
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  // setupFiles: [],
+  setupFiles,
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
