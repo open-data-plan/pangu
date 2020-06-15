@@ -25,12 +25,12 @@
   },
   "homepage": "https://github.com/open-data-plan/pangu/packages/babel-preset-app#readme",
   "dependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/helper-plugin-utils": "^7.8.3",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/preset-react": "^7.9.4",
-    "@babel/preset-typescript": "^7.9.0",
+    "@babel/core": "^7.10.2",
+    "@babel/helper-plugin-utils": "^7.10.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-typescript": "^7.10.1",
     "babel-plugin-import": "^1.13.0",
     "core-js": "^3.6.5",
     "react-hot-loader": "^4.12.21"

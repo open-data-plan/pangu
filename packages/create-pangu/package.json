@@ -31,10 +31,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "chalk": "^4.0.0",
+    "chalk": "^4.1.0",
     "commander": "^5.1.0",
     "decompress": "^4.2.0",
-    "inquirer": "^7.1.0",
+    "inquirer": "^7.2.0",
     "lodash": "^4.17.11",
     "progress": "^2.0.3",
     "signale": "^1.4.0",
