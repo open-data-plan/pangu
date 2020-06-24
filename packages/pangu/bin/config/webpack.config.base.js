@@ -15,7 +15,6 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const AntDesignThemePlugin = require('antd-theme-webpack-plugin')
 const { argv } = require('yargs')
 const postcssConfig = require('./postcss.config')
 const {
@@ -74,7 +73,7 @@ function getCSSLoader(lang, modules) {
         sourceMap: true,
         lessOptions: {
           javascriptEnabled: true,
-          modifyVars: theme.modifyVars || {},
+          modifyVars: theme || {},
         },
       },
     })
@@ -210,14 +209,6 @@ const config = {
       },
     }),
     // new FriendlyErrorsPlugin(),
-    new AntDesignThemePlugin({
-      antDir: path.resolve(workDir, 'node_modules/antd'),
-      stylesDir: path.resolve(srcDir, 'styles/theme'),
-      varFile: path.resolve(srcDir, 'styles/theme/vars.less'),
-      indexFileName: 'index.html',
-      themeVariables: theme.variables || [],
-      generateOnce: false,
-    }),
   ],
   optimization: {
     minimize: PRODUCT,
