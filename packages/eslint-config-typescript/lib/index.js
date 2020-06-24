@@ -98,6 +98,7 @@ module.exports = {
         'standard/no-callback-literal': 'off',
         'react/jsx-handler-names': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
+        '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/member-delimiter-style': 'off',
         '@typescript-eslint/no-explicit-any': 'off',
       },
