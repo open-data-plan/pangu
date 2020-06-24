@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/open-data-plan/pangu/compare/v1.4.1...v1.5.0) (2020-06-24)
+
+
+### Features
+
+* update eslint rules ([c05b8e4](https://github.com/open-data-plan/pangu/commit/c05b8e47352dd44e3043cdfca2bd045ad886c283))
+
+
+
+
+
 ## [1.4.1](https://github.com/open-data-plan/pangu/compare/v1.4.0...v1.4.1) (2020-06-15)
 
 **Note:** Version bump only for package @opd/eslint-config-typescript
