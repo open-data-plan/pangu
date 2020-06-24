@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/open-data-plan/pangu/compare/v1.5.0...v1.5.1) (2020-06-24)
+
+
+### Bug Fixes
+
+* fix theme config ([572aff5](https://github.com/open-data-plan/pangu/commit/572aff54b8fc81568627064cd4558475853617c6))
+
+
+
+
+
 # [1.5.0](https://github.com/open-data-plan/pangu/compare/v1.4.1...v1.5.0) (2020-06-24)
 
 
