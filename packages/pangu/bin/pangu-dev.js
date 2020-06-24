@@ -9,7 +9,7 @@ const { checkBrowsers } = require('react-dev-utils/browsersHelper')
 const { choosePort } = require('react-dev-utils/WebpackDevServerUtils')
 const signale = require('signale')
 const chokidar = require('chokidar')
-const { themePath, appPath, tplPath } = require('./utils/paths')
+const { themePath, appPath, tplPath, envPath } = require('./utils/paths')
 const { fork } = require('child_process')
 const updateNotifier = require('update-notifier')
 const pkg = require('../package.json')
@@ -24,6 +24,7 @@ program
   .usage('[options]')
   .option('-i, --ip [ip]', 'host to use')
   .option('-p, --port [port]', 'port to use')
+  .option('--ts-check', 'check typescript')
   .parse(process.argv)
 
 const DEFAULT_PORT = parseInt(program.port || process.env.PORT, 10) || 3000
@@ -44,7 +45,7 @@ checkBrowsers(process.cwd(), isInteractive)
 
     let child = start(port, HOST)
 
-    const fileWatcher = chokidar.watch([themePath, appPath, tplPath], {
+    const fileWatcher = chokidar.watch([themePath, appPath, tplPath, envPath], {
       ignored: /(^|[/\\])\../, // ignore dotfiles
       persistent: true,
       ignoreInitial: true,

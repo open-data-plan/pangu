@@ -28,6 +28,8 @@ const themePath = path.resolve(workDir, 'theme.json')
 // template path
 let tpl = path.resolve(publicDir, 'index.ejs') // default
 
+const envPath = path.resolve(workDir, '.env')
+
 // 兼容
 if (fs.existsSync(path.resolve(srcDir, 'index.ejs'))) {
   tpl = path.resolve(srcDir, 'index.ejs')
@@ -45,6 +47,7 @@ module.exports = {
   pkgPath,
   appPath,
   tplPath,
+  envPath,
   mockDir,
   themePath,
   publicDir,

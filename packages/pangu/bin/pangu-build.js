@@ -21,7 +21,7 @@ updateNotifier({ pkg }).notify()
 program
   .usage('[options]')
   .option('-a,--ana', 'start webpack bundle analyzer')
-  .option('-tc,--ts-check', 'check typescript')
+  .option('--ts-check', 'check typescript')
   .parse(process.argv)
 
 signale.info('Clean build output dir\n')

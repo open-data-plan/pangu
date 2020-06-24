@@ -8,13 +8,14 @@ const TerserWebpackPlugin = require('terser-webpack-plugin')
 const WebpackBar = require('webpackbar')
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin')
-const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
+// const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
 const WebpackManifestPlugin = require('webpack-manifest-plugin')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const AntDesignThemePlugin = require('antd-theme-webpack-plugin')
 const { argv } = require('yargs')
 const postcssConfig = require('./postcss.config')
 const {
@@ -73,7 +74,7 @@ function getCSSLoader(lang, modules) {
         sourceMap: true,
         lessOptions: {
           javascriptEnabled: true,
-          modifyVars: theme,
+          modifyVars: theme.modifyVars || {},
         },
       },
     })
@@ -95,8 +96,8 @@ const config = {
   output: {
     publicPath,
     path: outputDir,
-    filename: PRODUCT ? 'static/js/[name].[contenthash].js' : '[name].js',
-    chunkFilename: PRODUCT ? 'static/js/[id].[contenthash].js' : '[id].js',
+    filename: PRODUCT ? '[name].[contenthash].js' : '[name].js',
+    chunkFilename: PRODUCT ? '[id].[contenthash].js' : '[id].js',
   },
   resolve: {
     modules: ['node_modules'],
@@ -107,7 +108,7 @@ const config = {
       'react-dom': '@hot-loader/react-dom',
     },
   },
-  devtool: PRODUCT ? 'source-map' : 'cheap-module-eval-source-map',
+  devtool: DEV && 'cheap-module-eval-source-map',
   module: {
     rules: [
       {
@@ -161,7 +162,7 @@ const config = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/images/[name].[hash:8].[ext]',
+          name: '[name].[hash:8].[ext]',
         },
       },
       {
@@ -169,7 +170,7 @@ const config = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: 'static/fonts/[name].[hash:8].[ext]',
+          name: '[name].[hash:8].[ext]',
         },
       },
     ],
@@ -209,6 +210,14 @@ const config = {
       },
     }),
     // new FriendlyErrorsPlugin(),
+    new AntDesignThemePlugin({
+      antDir: path.resolve(workDir, 'node_modules/antd'),
+      stylesDir: path.resolve(srcDir, 'styles/theme'),
+      varFile: path.resolve(srcDir, 'styles/theme/vars.less'),
+      indexFileName: 'index.html',
+      themeVariables: theme.variables || [],
+      generateOnce: false,
+    }),
   ],
   optimization: {
     minimize: PRODUCT,
@@ -236,13 +245,12 @@ const config = {
 if (argv.tsCheck) {
   config.plugins.push(
     new ForkTsCheckerWebpackPlugin({
-      async: DEV,
-      useTypescriptIncrementalApi: true,
-      checkSyntacticErrors: true,
-      watch: srcDir,
-      silent: true,
-      eslint: true,
-      formatter: PRODUCT ? typescriptFormatter : undefined,
+      eslint: {
+        enabled: true,
+      },
+      issue: {
+        scope: 'all',
+      },
     })
   )
 }
@@ -282,8 +290,8 @@ if (PRODUCT) {
   config.plugins.push(
     new MiniCSSExtractPlugin({
       ignoreOrder: true,
-      filename: 'static/css/[name].[contenthash].css',
-      chunkFilename: 'static/css/[id].[contenthash].css',
+      filename: '[name].[contenthash].css',
+      chunkFilename: '[id].[contenthash].css',
     })
   )
   config.plugins.push(
@@ -310,8 +318,9 @@ if (PRODUCT) {
           {
             from: publicDir,
             to: outputDir,
+            noErrorOnMissing: true,
             globOptions: {
-              ignore: ['*.ejs', '*.md'],
+              ignore: ['**/*.ejs', '**/*.md'],
             },
           },
         ],
