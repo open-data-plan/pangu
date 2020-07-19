@@ -34,8 +34,8 @@
     "chalk": "^4.1.0",
     "commander": "^5.1.0",
     "decompress": "^4.2.0",
-    "inquirer": "^7.2.0",
-    "lodash": "^4.17.11",
+    "inquirer": "^7.3.2",
+    "lodash": "^4.17.19",
     "progress": "^2.0.3",
     "signale": "^1.4.0",
     "string-template": "^1.0.0"

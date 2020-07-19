@@ -27,11 +27,11 @@
   },
   "homepage": "https://github.com/open-data-plan/pangu/packages/babel-preset-lib#readme",
   "dependencies": {
-    "@babel/core": "^7.10.3",
-    "@babel/helper-plugin-utils": "^7.10.3",
-    "@babel/plugin-proposal-class-properties": "^7.10.1",
-    "@babel/preset-env": "^7.10.3",
-    "@babel/preset-typescript": "^7.10.1"
+    "@babel/core": "^7.10.5",
+    "@babel/helper-plugin-utils": "^7.10.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4"
   },
   "directories": {
     "lib": "lib"
