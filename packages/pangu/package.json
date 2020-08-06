@@ -54,7 +54,7 @@
     "chokidar": "^3.4.1",
     "commander": "^6.0.0",
     "copy-webpack-plugin": "^6.0.3",
-    "css-loader": "^3.6.0",
+    "css-loader": "^4.2.1",
     "css-modules-typescript-loader": "^4.0.0",
     "dotenv": "^8.2.0",
     "eslint-loader": "^4.0.2",
