@@ -9,7 +9,7 @@ const {
   createCompiler,
   prepareUrls,
 } = require('react-dev-utils/WebpackDevServerUtils')
-const webpackConfig = require('../config/webpack.config')
+const webpackConfig = require('../config/webpack')
 const createServerConfig = require('../config/server.config')
 const { name: appName } = require('../utils/pkg')
 
