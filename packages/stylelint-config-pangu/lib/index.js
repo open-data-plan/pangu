@@ -6,6 +6,7 @@ module.exports = {
   rules: {
     'prettier/prettier': true,
     'function-name-case': null,
+    'selector-pseudo-class-no-unknown': null,
   },
   ignoreFiles: ['**/*.(t|j)sx'],
 }
