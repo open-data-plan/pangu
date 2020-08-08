@@ -9,7 +9,13 @@ const { checkBrowsers } = require('react-dev-utils/browsersHelper')
 const { choosePort } = require('react-dev-utils/WebpackDevServerUtils')
 const signale = require('signale')
 const chokidar = require('chokidar')
-const { themePath, appPath, tplPath, envPath } = require('./utils/paths')
+const {
+  themePath,
+  appPath,
+  tplPath,
+  envPath,
+  themeCfgPath,
+} = require('./utils/paths')
 const { fork } = require('child_process')
 const updateNotifier = require('update-notifier')
 const pkg = require('../package.json')
@@ -62,10 +68,13 @@ function start(port, host) {
     stdio: 'inherit',
   })
 
-  const fileWatcher = chokidar.watch([themePath, appPath, tplPath, envPath], {
-    persistent: true,
-    ignoreInitial: true,
-  })
+  const fileWatcher = chokidar.watch(
+    [themePath, themeCfgPath, appPath, tplPath, envPath],
+    {
+      persistent: true,
+      ignoreInitial: true,
+    }
+  )
 
   fileWatcher.on('all', (event, path) => {
     signale.await('Config file changed, restart dev server...')

@@ -24,6 +24,7 @@ const appPath = path.resolve(workDir, 'app.json')
 
 // theme config path
 const themePath = path.resolve(workDir, 'theme.json')
+const themeCfgPath = path.resolve(workDir, 'theme.config.js')
 
 // template path
 let tpl = path.resolve(publicDir, 'index.ejs') // default
@@ -50,6 +51,7 @@ module.exports = {
   envPath,
   mockDir,
   themePath,
+  themeCfgPath,
   publicDir,
   outputDir,
   publicPath,
