@@ -1,16 +1,16 @@
 const webpackMerge = require('webpack-merge')
-const baseConfig = require('./webpack.config.base')
-const userConfig = require('./webpack.config.user')
+const baseConfig = require('./base')
+const appConfig = require('./app')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { tplPath } = require('../utils/paths')
-const app = require('../utils/app')
+const { tplPath } = require('../../utils/paths')
+const app = require('../../utils/app')
 
 const PRODUCT = process.env.NODE_ENV === 'production'
 
 const config =
-  typeof userConfig === 'function'
-    ? userConfig(baseConfig)
-    : webpackMerge(baseConfig, userConfig)
+  typeof appConfig === 'function'
+    ? appConfig(baseConfig)
+    : webpackMerge(baseConfig, appConfig)
 
 if (config.entry) {
   const entry = config.entry

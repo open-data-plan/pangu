@@ -44,7 +44,7 @@ module.exports = declare(
               'antd-mobile',
             ],
             '@babel/plugin-proposal-class-properties',
-            'react-hot-loader/babel',
+            'react-refresh/babel',
           ],
         },
         test: {

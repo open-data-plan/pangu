@@ -30,11 +30,11 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@types/jest": "^26.0.5",
-    "babel-jest": "^26.1.0",
+    "@types/jest": "^26.0.9",
+    "babel-jest": "^26.2.2",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.1.0",
+    "jest": "^26.2.2",
     "jest-canvas-mock": "^2.2.0",
-    "regenerator-runtime": "^0.13.5"
+    "regenerator-runtime": "^0.13.7"
   }
 }

@@ -4,7 +4,7 @@ require('dotenv').config()
 process.env.NODE_ENV = 'production'
 const program = require('commander')
 const webpack = require('webpack')
-const webpackConfig = require('./config/webpack.config')
+const webpackConfig = require('./config/webpack')
 const rimraf = require('rimraf')
 const signale = require('signale')
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages')

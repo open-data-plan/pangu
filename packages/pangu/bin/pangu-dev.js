@@ -13,6 +13,7 @@ const { themePath, appPath, tplPath, envPath } = require('./utils/paths')
 const { fork } = require('child_process')
 const updateNotifier = require('update-notifier')
 const pkg = require('../package.json')
+const { argv } = require('yargs')
 
 // notify for update
 updateNotifier({ pkg }).notify()
@@ -43,19 +44,7 @@ checkBrowsers(process.cwd(), isInteractive)
       return null
     }
 
-    let child = start(port, HOST)
-
-    const fileWatcher = chokidar.watch([themePath, appPath, tplPath, envPath], {
-      ignored: /(^|[/\\])\../, // ignore dotfiles
-      persistent: true,
-      ignoreInitial: true,
-    })
-    fileWatcher.on('all', (event, path) => {
-      signale.await('Config file changed, restart dev server...')
-      signale.info(`Changed file: ${path}`)
-      child.kill()
-      child = start(port, HOST)
-    })
+    start(port, HOST)
   })
   .catch((err) => {
     if (err && err.message) {
@@ -65,22 +54,44 @@ checkBrowsers(process.cwd(), isInteractive)
   })
 
 function start(port, host) {
-  const child = fork(
-    require.resolve('./server/index.js'),
-    ['--port', port, '--host', host],
-    {
-      stdio: 'inherit',
+  const args = ['--port', port, '--host', host]
+  if (argv.tsCheck) {
+    args.push('--ts-check')
+  }
+  const child = fork(require.resolve('./server/index.js'), args, {
+    stdio: 'inherit',
+  })
+
+  const fileWatcher = chokidar.watch([themePath, appPath, tplPath, envPath], {
+    persistent: true,
+    ignoreInitial: true,
+  })
+
+  fileWatcher.on('all', (event, path) => {
+    signale.await('Config file changed, restart dev server...')
+    signale.info(`Changed file: ${path}`)
+    child.kill()
+    start(port, HOST)
+  })
+
+  process.stdin.on('data', (buf) => {
+    const message = buf.toString('utf8').trim()
+
+    if (message === 'rs' || message === 'restart') {
+      signale.note('Restart development server')
+      child.kill()
+      start(port, host)
     }
-  )
+  })
+
+  child.on('error', (code) => {
+    process.exit(1)
+  })
   ;[('SIGINT', 'SIGTERM')].forEach(function (sig) {
     process.on(sig, function () {
       child.kill(sig)
       process.exit()
     })
-  })
-
-  child.on('error', (code) => {
-    process.exit(1)
   })
 
   return child

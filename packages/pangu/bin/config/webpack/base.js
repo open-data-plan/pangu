@@ -15,17 +15,18 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const { argv } = require('yargs')
-const postcssConfig = require('./postcss.config')
+const postcssConfig = require('../postcss.config')
 const {
   srcDir,
   workDir,
   outputDir,
   publicDir,
   publicPath,
-} = require('../utils/paths')
-const app = require('../utils/app')
-const theme = require('../utils/theme')
+} = require('../../utils/paths')
+const app = require('../../utils/app')
+const theme = require('../../utils/theme')
 const globalsConfig = require('./globals.config')
 
 const PRODUCT = process.env.NODE_ENV === 'production'
@@ -43,9 +44,7 @@ function getCSSLoader(lang, modules) {
   } else {
     loaders = [MiniCSSExtractPlugin.loader]
   }
-  if (modules) {
-    loaders.push('css-modules-typescript-loader')
-  }
+  loaders.push('@opd/css-modules-typings-loader')
   loaders = [
     ...loaders,
     {
@@ -53,11 +52,11 @@ function getCSSLoader(lang, modules) {
       options: {
         importLoaders: lang === 'css' ? 1 : 2,
         sourceMap: true,
-        modules: modules
-          ? {
-              localIdentName: DEV ? '[path][name]__[local]' : '[hash:base64]',
-            }
-          : false,
+        modules: {
+          localIdentName: DEV ? '[path][name]__[local]' : '[hash:base64]',
+          exportLocalsConvention: 'camelCaseOnly',
+          auto: true,
+        },
         localsConvention: 'camelCaseOnly',
       },
     },
@@ -87,7 +86,6 @@ const config = {
     app: PRODUCT
       ? [path.resolve(srcDir, 'index.tsx')]
       : [
-          require.resolve('react-hot-loader/patch'),
           require.resolve('react-dev-utils/webpackHotDevClient'), // for HMR
           path.resolve(srcDir, 'index.tsx'),
         ],
@@ -104,10 +102,9 @@ const config = {
     mainFields: ['module', 'main'],
     alias: {
       '@': srcDir,
-      'react-dom': '@hot-loader/react-dom',
     },
   },
-  devtool: DEV && 'cheap-module-eval-source-map',
+  devtool: DEV ? 'cheap-module-eval-source-map' : 'source-map',
   module: {
     rules: [
       {
@@ -140,21 +137,11 @@ const config = {
       },
       {
         test: /.css$/,
-        exclude: /.module.css$/,
         use: getCSSLoader('css'),
       },
       {
-        test: /.module.css$/,
-        use: getCSSLoader('css', true),
-      },
-      {
         test: /.less$/,
-        exclude: /.module.less$/,
         use: getCSSLoader('less'),
-      },
-      {
-        test: /.module.less$/,
-        use: getCSSLoader('less', true),
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
@@ -275,6 +262,7 @@ if (DEV) {
   config.plugins.push(
     new WatchMissingNodeModulesPlugin(path.resolve(workDir, 'node_modules'))
   )
+  config.plugins.push(new ReactRefreshWebpackPlugin())
 }
 
 if (PRODUCT) {
