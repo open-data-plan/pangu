@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/open-data-plan/pangu/compare/v1.6.0...v1.6.1) (2020-08-08)
+
+
+### Bug Fixes
+
+* fix webpack config path ([ecb298e](https://github.com/open-data-plan/pangu/commit/ecb298e5a89a8aba3f29dd67494ec78608700309))
+
+
+
+
+
 # [1.6.0](https://github.com/open-data-plan/pangu/compare/v1.5.1...v1.6.0) (2020-08-08)
 
 
