@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.1](https://github.com/open-data-plan/pangu/compare/v1.7.0...v1.7.1) (2020-08-08)
+
+
+### Bug Fixes
+
+* remove unused module ([25ab368](https://github.com/open-data-plan/pangu/commit/25ab36847bce2fa3b916a339b85fe20e32158552))
+
+
+
+
+
 # [1.7.0](https://github.com/open-data-plan/pangu/compare/v1.6.3...v1.7.0) (2020-08-08)
 
 
