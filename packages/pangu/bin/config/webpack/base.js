@@ -57,7 +57,6 @@ function getCSSLoader(lang, modules) {
           exportLocalsConvention: 'camelCaseOnly',
           auto: true,
         },
-        localsConvention: 'camelCaseOnly',
       },
     },
     {

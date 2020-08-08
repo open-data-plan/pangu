@@ -1,4 +1,4 @@
-const webpackMerge = require('webpack-merge')
+const { merge } = require('webpack-merge')
 const baseConfig = require('./base')
 const appConfig = require('./app')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -10,7 +10,7 @@ const PRODUCT = process.env.NODE_ENV === 'production'
 const config =
   typeof appConfig === 'function'
     ? appConfig(baseConfig)
-    : webpackMerge(baseConfig, appConfig)
+    : merge(baseConfig, appConfig)
 
 if (config.entry) {
   const entry = config.entry

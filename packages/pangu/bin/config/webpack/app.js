@@ -1,6 +1,6 @@
 const { existsSync } = require('fs')
 const { resolve } = require('path')
-const { workDir } = require('../utils/paths')
+const { workDir } = require('../../utils/paths')
 
 module.exports = (() => {
   const paths = ['webpack.config.js', 'config/webpack.config.js']
@@ -15,5 +15,7 @@ module.exports = (() => {
   }
   if (webpackPath) {
     return require(webpackPath)
+  } else {
+    return {}
   }
 })()
