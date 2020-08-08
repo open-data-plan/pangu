@@ -1,6 +1,6 @@
 {
   "name": "@opd/create-pangu",
-  "version": "1.4.1",
+  "version": "1.6.0",
   "description": "scaffold tool for pangu",
   "keywords": [
     "cli",

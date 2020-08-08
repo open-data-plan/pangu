@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/open-data-plan/pangu/compare/v1.5.1...v1.6.0) (2020-08-08)
+
+
+### Features
+
+* update stylelint rules ([a8ff52f](https://github.com/open-data-plan/pangu/commit/a8ff52f0d7a6d9ca4179720a100173246a67d154))
+
+
+
+
+
 ## [1.5.1](https://github.com/open-data-plan/pangu/compare/v1.5.0...v1.5.1) (2020-06-24)
 
 
