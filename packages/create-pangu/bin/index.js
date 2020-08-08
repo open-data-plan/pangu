@@ -16,7 +16,6 @@ const getTemplate = require('./utils/template')
 const checkNode = require('./utils/check-node')
 const pkg = require('../package.json')
 const format = require('string-template')
-const { sign } = require('crypto')
 
 // padding
 console.log()
