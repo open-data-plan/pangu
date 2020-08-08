@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/open-data-plan/pangu/compare/v1.6.1...v1.6.2) (2020-08-08)
+
+
+### Bug Fixes
+
+* globals config path ([a3b2c53](https://github.com/open-data-plan/pangu/commit/a3b2c53d02e24f17992fbd342fef4ab800fef052))
+
+
+
+
+
 ## [1.6.1](https://github.com/open-data-plan/pangu/compare/v1.6.0...v1.6.1) (2020-08-08)
 
 
