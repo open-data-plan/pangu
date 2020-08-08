@@ -27,7 +27,7 @@ const {
 } = require('../../utils/paths')
 const app = require('../../utils/app')
 const theme = require('../../utils/theme')
-const globalsConfig = require('./globals.config')
+const globalsConfig = require('../globals.config')
 
 const PRODUCT = process.env.NODE_ENV === 'production'
 const DEV = process.env.NODE_ENV === 'development'
