@@ -71,6 +71,7 @@ function start(port, host) {
     signale.await('Config file changed, restart dev server...')
     signale.info(`Changed file: ${path}`)
     child.kill()
+    fileWatcher.close()
     start(port, HOST)
   })
 
@@ -80,6 +81,7 @@ function start(port, host) {
     if (message === 'rs' || message === 'restart') {
       signale.note('Restart development server')
       child.kill()
+      fileWatcher.close()
       start(port, host)
     }
   })
