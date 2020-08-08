@@ -8,7 +8,7 @@ const path = require('path')
 const inquirer = require('inquirer')
 const chalk = require('chalk')
 const decompress = require('decompress')
-const http = require('http')
+const https = require('https')
 const { spawnSync } = require('child_process')
 const { promisify } = require('util')
 const ProgressBar = require('progress')
@@ -16,6 +16,7 @@ const getTemplate = require('./utils/template')
 const checkNode = require('./utils/check-node')
 const pkg = require('../package.json')
 const format = require('string-template')
+const { sign } = require('crypto')
 
 // padding
 console.log()
@@ -209,7 +210,7 @@ const updatePkg = async (dest) => {
 
 const downloadFiles = async (dest, template) => {
   const zipFileName = dest + '/temp.zip'
-  const req = http.get(template, {
+  const req = https.get(template, {
     headers: {
       'PRIVATE-TOKEN': '2TYVGhes2V78-kQ4XtDt',
     },
@@ -221,6 +222,17 @@ const downloadFiles = async (dest, template) => {
         'There is something wrong with your network, maybe wrong branch name'
       )
       await handleError()
+    }
+    // follow redirect
+    if (res.statusCode === 302) {
+      const redirectUrl = res.headers.location
+      if (redirectUrl) {
+        downloadFiles(dest, redirectUrl)
+        return
+      } else {
+        signale.error('No template found')
+        await handleError()
+      }
     }
     // length can be NaN, but no why
     let length = parseInt(res.headers['content-length'], 10)

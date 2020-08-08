@@ -23,9 +23,7 @@
   "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
   "license": "MIT",
   "devDependencies": {
-    "@opd/eslint-config-pangu": "file:./packages/eslint-config-pangu",
-    "@opd/eslint-config-typescript": "file:./packages/eslint-config-typescript",
-    "@opd/prettier-config-pangu": "file:./packages/prettier-config-pangu",
+    "@opd/eslint-config-pangu": "^1.6.0",
     "eslint": "^7.6.0",
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
