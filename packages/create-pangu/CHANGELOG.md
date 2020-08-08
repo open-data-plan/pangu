@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/open-data-plan/pangu/compare/v1.6.3...v1.7.0) (2020-08-08)
+
+
+### Features
+
+* follow direct urls ([4b5b44a](https://github.com/open-data-plan/pangu/commit/4b5b44aca3999df515c9b7d9690379c6f5ec32ed))
+
+
+
+
+
 # [1.6.0](https://github.com/open-data-plan/pangu/compare/v1.5.1...v1.6.0) (2020-08-08)
 
 **Note:** Version bump only for package @opd/create-pangu
