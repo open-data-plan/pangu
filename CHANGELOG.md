@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/open-data-plan/pangu/compare/v1.7.2...v1.8.0) (2020-08-08)
+
+
+### Features
+
+* support theme.config.js ([cd915c8](https://github.com/open-data-plan/pangu/commit/cd915c81042a8c5a0f695503a4a5c74127934348))
+
+
+
+
+
 ## [1.7.2](https://github.com/open-data-plan/pangu/compare/v1.7.1...v1.7.2) (2020-08-08)
 
 
