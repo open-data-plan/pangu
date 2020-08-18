@@ -35,7 +35,7 @@
     "commander": "^6.0.0",
     "decompress": "^4.2.0",
     "inquirer": "^7.3.3",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "progress": "^2.0.3",
     "signale": "^1.4.0",
     "string-template": "^1.0.0"
