@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.2](https://github.com/open-data-plan/pangu/compare/v1.8.1...v1.8.2) (2020-08-25)
+
+**Note:** Version bump only for package @opd/babel-preset-component
+
+
+
+
+
 # [1.6.0](https://github.com/open-data-plan/pangu/compare/v1.5.1...v1.6.0) (2020-08-08)
 
 **Note:** Version bump only for package @opd/babel-preset-component
