@@ -23,13 +23,13 @@
   "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
   "license": "MIT",
   "devDependencies": {
-    "@opd/eslint-config-pangu": "^1.7.0",
-    "eslint": "^7.6.0",
+    "@opd/eslint-config-pangu": "^1.8.2",
+    "eslint": "^7.7.0",
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
     "lint-staged": "^10.2.11",
-    "prettier": "^2.0.5",
-    "typescript": "^3.9.7"
+    "prettier": "^2.1.0",
+    "typescript": "^4.0.2"
   },
   "husky": {
     "hooks": {
