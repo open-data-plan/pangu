@@ -60,7 +60,7 @@
     "identity-obj-proxy": "^3.0.0",
     "json-server": "^0.16.1",
     "less": "^3.12.2",
-    "less-loader": "^6.2.0",
+    "less-loader": "^7.0.0",
     "lint-staged": "^10.2.11",
     "mini-css-extract-plugin": "^0.10.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
