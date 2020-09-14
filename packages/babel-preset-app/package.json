@@ -1,6 +1,6 @@
 {
   "name": "@opd/babel-preset-app",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "description": "babel preset used by react app in pangu",
   "main": "lib/index.js",
   "scripts": {
