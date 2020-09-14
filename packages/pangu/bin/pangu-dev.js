@@ -54,7 +54,7 @@ checkBrowsers(process.cwd(), isInteractive)
   })
   .catch((err) => {
     if (err && err.message) {
-      console.log(err.message)
+      signale.error(err.message)
     }
     process.exit(1)
   })
@@ -76,12 +76,19 @@ function start(port, host) {
     }
   )
 
+  function restart() {
+    child.removeAllListeners()
+    child.kill()
+    fileWatcher.close()
+    process.stdin.removeAllListeners()
+    process.removeAllListeners()
+    start(port, host)
+  }
+
   fileWatcher.on('all', (event, path) => {
     signale.await('Config file changed, restart dev server...')
     signale.info(`Changed file: ${path}`)
-    child.kill()
-    fileWatcher.close()
-    start(port, HOST)
+    restart()
   })
 
   process.stdin.on('data', (buf) => {
@@ -89,9 +96,7 @@ function start(port, host) {
 
     if (message === 'rs' || message === 'restart') {
       signale.note('Restart development server')
-      child.kill()
-      fileWatcher.close()
-      start(port, host)
+      restart()
     }
   })
 
