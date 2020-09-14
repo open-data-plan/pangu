@@ -1,6 +1,6 @@
 {
   "name": "@opd/pangu",
-  "version": "1.8.3",
+  "version": "1.8.4",
   "description": "develop tool for ui-engine project",
   "keywords": [
     "cli",
@@ -35,7 +35,7 @@
     "@hot-loader/react-dom": "^16.13.0",
     "@opd/babel-preset-app": "^1.8.3",
     "@opd/css-modules-typings-loader": "^1.0.5",
-    "@opd/eslint-config-pangu": "^1.8.3",
+    "@opd/eslint-config-pangu": "^1.8.4",
     "@opd/jest-preset-pangu": "^1.8.3",
     "@opd/prettier-config-pangu": "^1.8.3",
     "@opd/stylelint-config-pangu": "^1.8.3",
