@@ -1,6 +1,6 @@
 {
   "name": "@opd/pangu",
-  "version": "1.8.4",
+  "version": "1.8.6",
   "description": "develop tool for ui-engine project",
   "keywords": [
     "cli",
