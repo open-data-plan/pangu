@@ -9,7 +9,6 @@ const WebpackBar = require('webpackbar')
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin')
 // const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
-const WebpackManifestPlugin = require('webpack-manifest-plugin')
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
@@ -156,24 +155,6 @@ const config = {
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
     new webpack.DefinePlugin(globalsConfig),
     new ModuleNotFoundPlugin(),
-    new WebpackManifestPlugin({
-      fileName: 'asset-manifest.json',
-      generate: (seed, files, entrypoints) => {
-        const manifestFiles = files.reduce((manifest, file) => {
-          manifest[file.name] = file.path
-          return manifest
-        }, seed)
-
-        // const entrypointFiles = entrypoints.main.filter(
-        //   fileName => !fileName.endsWith('.map')
-        // )
-
-        return {
-          files: manifestFiles,
-          // entrypoints: entrypointFiles,
-        }
-      },
-    }),
     new webpack.LoaderOptionsPlugin({
       debug: true,
       options: {
