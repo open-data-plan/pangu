@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/open-data-plan/pangu/compare/v1.8.7...v1.9.0) (2020-10-10)
+
+
+### Features
+
+* remove WebpackManifestPlugin ([78855d0](https://github.com/open-data-plan/pangu/commit/78855d043efbfca2cf736ec2f9a760e30b3abbd4))
+
+
+
+
+
 ## [1.8.7](https://github.com/open-data-plan/pangu/compare/v1.8.6...v1.8.7) (2020-10-10)
 
 **Note:** Version bump only for package @opd/pangu
