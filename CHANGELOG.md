@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.1](https://github.com/open-data-plan/pangu/compare/v1.9.0...v1.9.1) (2020-10-10)
+
+
+### Bug Fixes
+
+* fix postcss config ([9a1873b](https://github.com/open-data-plan/pangu/commit/9a1873b9b7c4d8e0351208099f67ce9d3ab4f760))
+
+
+
+
+
 # [1.9.0](https://github.com/open-data-plan/pangu/compare/v1.8.7...v1.9.0) (2020-10-10)
 
 
