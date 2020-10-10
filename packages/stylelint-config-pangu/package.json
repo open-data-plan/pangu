@@ -24,7 +24,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "stylelint": "^13.7.1",
+    "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-prettier": "^1.1.2"
@@ -33,6 +33,6 @@
     "prettier": "^2.0.0"
   },
   "devDependencies": {
-    "prettier": "^2.1.1"
+    "prettier": "^2.1.2"
   }
 }

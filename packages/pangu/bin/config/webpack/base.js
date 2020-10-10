@@ -14,6 +14,7 @@ const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const { argv } = require('yargs')
@@ -106,21 +107,6 @@ const config = {
   devtool: DEV ? 'cheap-module-eval-source-map' : 'source-map',
   module: {
     rules: [
-      {
-        test: /\.(j|t)sx?$/,
-        include: [srcDir],
-        exclude: /node_modules/,
-        use: {
-          options: {
-            cache: true,
-            formatter: require.resolve('react-dev-utils/eslintFormatter'),
-            eslintPath: require.resolve('eslint'),
-            resolvePluginsRelativeTo: __dirname,
-          },
-          loader: 'eslint-loader',
-        },
-        enforce: 'pre',
-      },
       {
         test: /\.(j|t)sx?$/,
         include: [srcDir],
@@ -262,6 +248,13 @@ if (DEV) {
     new WatchMissingNodeModulesPlugin(path.resolve(workDir, 'node_modules'))
   )
   config.plugins.push(new ReactRefreshWebpackPlugin())
+  config.plugins.push(
+    new ESLintPlugin({
+      extensions: ['js', 'ts', 'jsx', 'tsx', 'vue'],
+      fix: true,
+      lintDirtyModulesOnly: true,
+    })
+  )
 }
 
 if (PRODUCT) {
