@@ -1,5 +1,5 @@
 module.exports = {
-  sourceMap: true,
+  map: true,
   plugins: [
     require('postcss-flexbugs-fixes'),
     // require('postcss-url')(),

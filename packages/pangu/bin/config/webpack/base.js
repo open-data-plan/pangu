@@ -61,7 +61,13 @@ function getCSSLoader(lang, modules) {
     },
     {
       loader: 'postcss-loader',
-      options: postcssConfig,
+      options: {
+        sourceMap: true,
+        postcssOptions: {
+          ...postcssConfig,
+          config: true,
+        },
+      },
     },
   ]
   if (lang === 'less') {
