@@ -32,7 +32,6 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@hot-loader/react-dom": "^16.13.0",
     "@opd/babel-preset-app": "^1.8.3",
     "@opd/css-modules-typings-loader": "^1.0.5",
     "@opd/eslint-config-pangu": "^1.8.7",
