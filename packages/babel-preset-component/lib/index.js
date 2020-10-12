@@ -15,8 +15,10 @@ module.exports = declare(
           '@babel/preset-env',
           {
             modules: false,
+            useBuiltIns: 'usage',
+            corejs: 3,
             targets: {
-              browsers: 'last 2 versions, IE >= 11',
+              chrome: 58,
             },
           },
         ],
@@ -42,6 +44,12 @@ module.exports = declare(
           },
           'antd-mobile',
         ],
+        [
+          '@babel/plugin-transform-runtime',
+          {
+            version: require('@babel/runtime/package.json').version,
+          },
+        ],
         '@babel/plugin-proposal-class-properties',
       ],
       env: {
@@ -54,6 +62,12 @@ module.exports = declare(
           plugins: [
             ['import', false, 'antd'],
             ['import', false, 'antd-mobile'],
+            [
+              '@babel/plugin-transform-runtime',
+              {
+                version: require('@babel/runtime/package.json').version,
+              },
+            ],
             '@babel/plugin-proposal-class-properties',
           ],
         },
@@ -62,8 +76,10 @@ module.exports = declare(
             [
               '@babel/preset-env',
               {
+                useBuiltIns: 'usage',
+                corejs: 3,
                 targets: {
-                  browsers: 'last 2 versions, IE >= 11',
+                  chrome: 58,
                 },
               },
             ],
@@ -88,6 +104,12 @@ module.exports = declare(
                 style: true,
               },
               'antd-mobile',
+            ],
+            [
+              '@babel/plugin-transform-runtime',
+              {
+                version: require('@babel/runtime/package.json').version,
+              },
             ],
             '@babel/plugin-proposal-class-properties',
           ],

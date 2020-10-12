@@ -43,6 +43,13 @@ module.exports = declare(
               },
               'antd-mobile',
             ],
+            [
+              '@babel/plugin-transform-runtime',
+              {
+                version: require('@babel/runtime/package.json').version,
+                useESModules: true,
+              },
+            ],
             '@babel/plugin-proposal-class-properties',
             'react-refresh/babel',
           ],
@@ -62,6 +69,12 @@ module.exports = declare(
           plugins: [
             ['import', false, 'antd'],
             ['import', false, 'antd-mobile'],
+            [
+              '@babel/plugin-transform-runtime',
+              {
+                version: require('@babel/runtime/package.json').version,
+              },
+            ],
             '@babel/plugin-proposal-class-properties',
           ],
         },
@@ -84,6 +97,13 @@ module.exports = declare(
                 style: true,
               },
               'antd-mobile',
+            ],
+            [
+              '@babel/plugin-transform-runtime',
+              {
+                version: require('@babel/runtime/package.json').version,
+                useESModules: true,
+              },
             ],
             '@babel/plugin-proposal-class-properties',
           ],

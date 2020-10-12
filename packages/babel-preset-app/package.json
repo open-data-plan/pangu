@@ -28,9 +28,11 @@
     "@babel/core": "^7.11.6",
     "@babel/helper-plugin-utils": "^7.10.4",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-transform-runtime": "^7.11.5",
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
+    "@babel/runtime": "^7.11.2",
     "babel-plugin-import": "^1.13.0",
     "core-js": "^3.6.5",
     "react-refresh": "^0.8.3"
