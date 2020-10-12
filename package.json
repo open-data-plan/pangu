@@ -23,7 +23,7 @@
   "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
   "license": "MIT",
   "devDependencies": {
-    "@opd/eslint-config-pangu": "^1.8.4",
+    "@opd/eslint-config-pangu": "^1.8.7",
     "eslint": "^7.11.0",
     "husky": "^4.3.0",
     "lerna": "^3.22.1",
