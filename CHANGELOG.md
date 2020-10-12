@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/open-data-plan/pangu/compare/v1.9.2...v1.10.0) (2020-10-12)
+
+
+### Features
+
+* update babel config ([e857256](https://github.com/open-data-plan/pangu/commit/e85725669ffdc244ad83632ad69071d14d4afb4f))
+
+
+
+
+
 ## [1.9.2](https://github.com/open-data-plan/pangu/compare/v1.9.1...v1.9.2) (2020-10-10)
 
 **Note:** Version bump only for package pangu
