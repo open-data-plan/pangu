@@ -23,6 +23,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@opd/eslint-config-javascript": "^1.10.0",
     "@opd/eslint-config-typescript": "^1.10.0"
   },
   "peerDependencies": {

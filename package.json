@@ -24,8 +24,6 @@
   "license": "MIT",
   "devDependencies": {
     "@opd/eslint-config-pangu": "file:./packages/eslint-config-pangu",
-    "@opd/eslint-config-javascript": "file:./packages/eslint-config-javascript",
-    "@opd/eslint-config-typescript": "file:./packages/eslint-config-typescript",
     "@opd/prettier-config-pangu": "file:./packages/prettier-config-pangu",
     "eslint": "^7.11.0",
     "husky": "^4.3.0",

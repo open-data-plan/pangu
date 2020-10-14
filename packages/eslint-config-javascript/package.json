@@ -34,12 +34,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.4",
     "eslint-plugin-react-hooks": "^4.1.2",
-    "eslint-plugin-standard": "^4.0.1"
-  },
-  "peerDependencies": {
-    "prettier": "^2.0.0"
-  },
-  "devDependencies": {
+    "eslint-plugin-standard": "^4.0.1",
     "prettier": "^2.1.2"
   }
 }
