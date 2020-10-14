@@ -46,7 +46,7 @@
     "chokidar": "^3.4.3",
     "commander": "^6.1.0",
     "copy-webpack-plugin": "^6.2.1",
-    "css-loader": "^4.3.0",
+    "css-loader": "^5.0.0",
     "dotenv": "^8.2.0",
     "eslint-webpack-plugin": "^2.1.0",
     "favicons-webpack-plugin": "^4.2.0",
