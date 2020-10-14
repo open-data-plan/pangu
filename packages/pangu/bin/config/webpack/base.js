@@ -9,12 +9,13 @@ const WebpackBar = require('webpackbar')
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin')
 // const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const { GenerateSW } = require('workbox-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const WebpackManifestPlugin = require('webpack-manifest-plugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const { argv } = require('yargs')
 const postcssConfig = require('../postcss.config')
@@ -253,7 +254,33 @@ if (PRODUCT) {
     })
   )
   config.plugins.push(
-    new WorkboxWebpackPlugin.GenerateSW({
+    new WebpackManifestPlugin({
+      fileName: 'asset-manifest.json',
+      generate: (seed, files, entrypoints) => {
+        const manifestFiles = files.reduce((manifest, file) => {
+          manifest[file.name] = file.path
+          return manifest
+        }, seed)
+
+        const entrypointFiles = []
+
+        Object.entries(entrypoints).forEach(([key, files]) =>
+          files.forEach((fileName) => {
+            if (!fileName.endsWith('.map')) {
+              entrypointFiles.push(fileName)
+            }
+          })
+        )
+
+        return {
+          files: manifestFiles,
+          entrypoints: entrypointFiles,
+        }
+      },
+    })
+  )
+  config.plugins.push(
+    new GenerateSW({
       clientsClaim: true,
       exclude: [/\.map$/, /asset-manifest\.json$/],
       // navigateFallback: 'index.html',
