@@ -52,9 +52,15 @@ compiler.run((err, stats) => {
       })
     }
   } else {
-    messages = formatWebpackMessages(
-      stats.toJson({ all: false, warnings: true, errors: true })
-    )
+    const { errors = [], warnings = [] } = stats.toJson({
+      all: false,
+      warnings: true,
+      errors: true,
+    })
+    messages = formatWebpackMessages({
+      errors: errors.map(({ message }) => message),
+      warnings: warnings.map(({ message }) => message),
+    })
   }
 
   if (messages.errors.length) {
@@ -66,22 +72,26 @@ compiler.run((err, stats) => {
     messages = messages.errors.join('\n\n')
   }
 
-  if (stats.hasErrors()) {
-    const tscCompileOnError = process.env.TSC_COMPILE_ON_ERROR === 'true'
-    if (tscCompileOnError) {
-      signale.error(
-        'Compiled with the following type errors (you may want to check these before deploying your app):\n'
-      )
-      printBuildError(messages)
+  if (stats) {
+    if (stats.hasErrors()) {
+      const tscCompileOnError = process.env.TSC_COMPILE_ON_ERROR === 'true'
+      if (tscCompileOnError) {
+        signale.error(
+          'Compiled with the following type errors (you may want to check these before deploying your app):\n'
+        )
+        printBuildError(messages)
+      } else {
+        signale.error('Failed to compile.\n')
+        printBuildError(messages)
+        process.exit(1)
+      }
+    } else if (stats.hasWarnings()) {
+      signale.warn('Compiled with warnings.\n')
+      console.log(messages.warnings.join('\n\n'))
     } else {
-      signale.error('Failed to compile.\n')
-      printBuildError(messages)
-      process.exit(1)
+      signale.success('Compiled successfully.\n')
     }
-  } else if (stats.hasWarnings()) {
-    signale.warn('Compiled with warnings.\n')
-    console.log(messages.warnings.join('\n\n'))
-  } else {
-    signale.success('Compiled successfully.\n')
   }
+
+  compiler.close(() => {})
 })

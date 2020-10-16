@@ -3,7 +3,6 @@ const fs = require('fs')
 const webpack = require('webpack')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-// const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const WebpackBar = require('webpackbar')
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
@@ -15,7 +14,6 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const WebpackManifestPlugin = require('webpack-manifest-plugin')
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 const { argv } = require('yargs')
 const postcssConfig = require('../postcss.config')
@@ -35,16 +33,7 @@ const DEV = process.env.NODE_ENV === 'development'
 
 // generate css loader for specific lang
 function getCSSLoader(lang, modules) {
-  let loaders = []
-  if (DEV) {
-    loaders = [
-      {
-        loader: 'style-loader',
-      },
-    ]
-  } else {
-    loaders = [MiniCSSExtractPlugin.loader]
-  }
+  let loaders = [MiniCSSExtractPlugin.loader]
   loaders.push('@opd/css-modules-typings-loader')
   loaders = [
     ...loaders,
@@ -104,13 +93,22 @@ const config = {
   },
   resolve: {
     modules: ['node_modules'],
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.css', '.less'],
+    extensions: [
+      '.ts',
+      '.tsx',
+      '.mjs',
+      '.js',
+      '.jsx',
+      '.json',
+      '.css',
+      '.less',
+    ],
     mainFields: ['module', 'main'],
     alias: {
       '@': srcDir,
     },
   },
-  devtool: DEV ? 'cheap-module-eval-source-map' : 'source-map',
+  devtool: DEV ? 'eval-cheap-module-source-map' : 'source-map',
   module: {
     rules: [
       {
@@ -158,8 +156,13 @@ const config = {
       minimal: true,
       compiledIn: true,
     }),
-    new webpack.WatchIgnorePlugin([/(css|less)\.d\.ts$/]),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new webpack.WatchIgnorePlugin({
+      paths: [/(css|less)\.d\.ts$/],
+    }),
+    new webpack.IgnorePlugin({
+      resourceRegExp: /^\.\/locale$/,
+      contextRegExp: /moment$/,
+    }),
     new webpack.DefinePlugin(globalsConfig),
     new ModuleNotFoundPlugin(),
     new webpack.LoaderOptionsPlugin({
@@ -168,7 +171,6 @@ const config = {
         context: __dirname,
       },
     }),
-    // new FriendlyErrorsPlugin(),
   ],
   optimization: {
     minimize: PRODUCT,
@@ -253,32 +255,7 @@ if (PRODUCT) {
       chunkFilename: '[id].[contenthash].css',
     })
   )
-  config.plugins.push(
-    new WebpackManifestPlugin({
-      fileName: 'asset-manifest.json',
-      generate: (seed, files, entrypoints) => {
-        const manifestFiles = files.reduce((manifest, file) => {
-          manifest[file.name] = file.path
-          return manifest
-        }, seed)
 
-        const entrypointFiles = []
-
-        Object.entries(entrypoints).forEach(([key, files]) =>
-          files.forEach((fileName) => {
-            if (!fileName.endsWith('.map')) {
-              entrypointFiles.push(fileName)
-            }
-          })
-        )
-
-        return {
-          files: manifestFiles,
-          entrypoints: entrypointFiles,
-        }
-      },
-    })
-  )
   config.plugins.push(
     new GenerateSW({
       clientsClaim: true,

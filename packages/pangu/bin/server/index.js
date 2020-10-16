@@ -5,10 +5,7 @@ const WebpackDevServer = require('webpack-dev-server')
 const webpack = require('webpack')
 const clearConsole = require('react-dev-utils/clearConsole')
 const openBrowser = require('react-dev-utils/openBrowser')
-const {
-  createCompiler,
-  prepareUrls,
-} = require('react-dev-utils/WebpackDevServerUtils')
+const { createCompiler, prepareUrls } = require('./webpack-dev-server-utils')
 const webpackConfig = require('../config/webpack')
 const createServerConfig = require('../config/server.config')
 const { name: appName } = require('../utils/pkg')
