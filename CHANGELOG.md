@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/open-data-plan/pangu/compare/v1.10.1...v1.11.0) (2020-10-16)
+
+
+### Features
+
+* compatible with webpack 5 ([fa56bfe](https://github.com/open-data-plan/pangu/commit/fa56bfee85001691f09d58375f290fe9f101cd95))
+* lint js files ([fd02050](https://github.com/open-data-plan/pangu/commit/fd020501b55305ace45e1326304e82e19e9b0ac3))
+* restore webpack-manifest-plugin ([757e48f](https://github.com/open-data-plan/pangu/commit/757e48f4d632f2b0940e45656a7407896c43464f))
+
+
+
+
+
 ## [1.10.1](https://github.com/open-data-plan/pangu/compare/v1.10.0...v1.10.1) (2020-10-12)
 
 **Note:** Version bump only for package pangu

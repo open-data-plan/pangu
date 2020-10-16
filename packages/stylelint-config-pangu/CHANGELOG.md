@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/open-data-plan/pangu/compare/v1.10.1...v1.11.0) (2020-10-16)
+
+
+### Features
+
+* compatible with webpack 5 ([fa56bfe](https://github.com/open-data-plan/pangu/commit/fa56bfee85001691f09d58375f290fe9f101cd95))
+
+
+
+
+
 # [1.10.0](https://github.com/open-data-plan/pangu/compare/v1.9.2...v1.10.0) (2020-10-12)
 
 **Note:** Version bump only for package @opd/stylelint-config-pangu
