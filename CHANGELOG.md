@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/open-data-plan/pangu/compare/v1.11.0...v1.11.1) (2020-10-16)
+
+
+### Bug Fixes
+
+* compatible with strict mode ([0b46728](https://github.com/open-data-plan/pangu/commit/0b467287b510565ac972c22680a4398d6483cbfa))
+
+
+
+
+
 # [1.11.0](https://github.com/open-data-plan/pangu/compare/v1.10.1...v1.11.0) (2020-10-16)
 
 
