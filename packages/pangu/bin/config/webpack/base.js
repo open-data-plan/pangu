@@ -33,7 +33,14 @@ const DEV = process.env.NODE_ENV === 'development'
 
 // generate css loader for specific lang
 function getCSSLoader(lang, modules) {
-  let loaders = [MiniCSSExtractPlugin.loader]
+  let loaders = [
+    {
+      loader: MiniCSSExtractPlugin.loader,
+      options: {
+        modules,
+      },
+    },
+  ]
   loaders.push('@opd/css-modules-typings-loader')
   loaders = [
     ...loaders,
@@ -78,12 +85,7 @@ function getCSSLoader(lang, modules) {
 const config = {
   mode: PRODUCT ? 'production' : 'development',
   entry: {
-    app: PRODUCT
-      ? [path.resolve(srcDir, 'index.tsx')]
-      : [
-          require.resolve('react-dev-utils/webpackHotDevClient'), // for HMR
-          path.resolve(srcDir, 'index.tsx'),
-        ],
+    app: path.resolve(srcDir, 'index.tsx'),
   },
   output: {
     publicPath,
@@ -177,6 +179,11 @@ const config = {
         context: __dirname,
       },
     }),
+    new MiniCSSExtractPlugin({
+      ignoreOrder: true,
+      filename: DEV ? '[name].css' : '[name].[contenthash].css',
+      chunkFilename: DEV ? '[id].css' : '[id].[contenthash].css',
+    }),
   ],
   optimization: {
     minimize: PRODUCT,
@@ -254,14 +261,6 @@ if (DEV) {
 }
 
 if (PRODUCT) {
-  config.plugins.push(
-    new MiniCSSExtractPlugin({
-      ignoreOrder: true,
-      filename: '[name].[contenthash].css',
-      chunkFilename: '[id].[contenthash].css',
-    })
-  )
-
   config.plugins.push(
     new GenerateSW({
       clientsClaim: true,
