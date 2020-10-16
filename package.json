@@ -7,7 +7,7 @@
     "test": "jest",
     "lint": "eslint ./packages --ext=.js",
     "lint:fix": "eslint ./packages --ext=.js --fix",
-    "release": "lerna publish --conventional-commits",
+    "release": "lerna publish --conventional-commits --yes",
     "build": "lerna run build",
     "postinstall": "lerna bootstrap"
   },
