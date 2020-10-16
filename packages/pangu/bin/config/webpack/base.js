@@ -112,6 +112,12 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.m?js$/,
+        resolve: {
+          fullySpecified: false,
+        },
+      },
+      {
         test: /\.(j|t)sx?$/,
         include: [srcDir],
         exclude: /node_modules/,
