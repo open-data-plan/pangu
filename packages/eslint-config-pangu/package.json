@@ -1,6 +1,6 @@
 {
   "name": "@opd/eslint-config-pangu",
-  "version": "1.11.0",
+  "version": "1.11.3",
   "description": "eslint config used by react app in pangu",
   "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
   "homepage": "https://github.com/open-data-plan/pangu/packages/eslint-config-pangu",
@@ -23,8 +23,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@opd/eslint-config-javascript": "^1.11.0",
-    "@opd/eslint-config-typescript": "^1.11.0"
+    "@opd/eslint-config-javascript": "^1.11.3",
+    "@opd/eslint-config-typescript": "^1.11.3"
   },
   "peerDependencies": {
     "prettier": "^2.0.0"
