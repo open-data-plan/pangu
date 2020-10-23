@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.5](https://github.com/open-data-plan/pangu/compare/v1.11.4...v1.11.5) (2020-10-23)
+
+
+### Bug Fixes
+
+* fix TerserWebpackPlugin options ([9c8aa9a](https://github.com/open-data-plan/pangu/commit/9c8aa9aa1330a5bbfc464f7acb457fa0133b06bd))
+
+
+
+
+
 ## [1.11.4](https://github.com/open-data-plan/pangu/compare/v1.11.3...v1.11.4) (2020-10-23)
 
 **Note:** Version bump only for package @opd/pangu
