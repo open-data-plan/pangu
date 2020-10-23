@@ -189,9 +189,7 @@ const config = {
     minimize: PRODUCT,
     minimizer: [
       new TerserWebpackPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true, // set to true if you want JS source maps
+        extractComments: false,
       }),
       new OptimizeCSSAssetsPlugin({
         cssProcessorOptions: {
