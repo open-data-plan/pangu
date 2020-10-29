@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/open-data-plan/pangu/compare/v1.11.6...v1.12.0) (2020-10-29)
+
+
+### Features
+
+* use latest standard react eslint config ([8bf12c8](https://github.com/open-data-plan/pangu/commit/8bf12c8f39ac890a7f9beb1916cb76fb7f3f57f7))
+
+
+
+
+
 ## [1.11.6](https://github.com/open-data-plan/pangu/compare/v1.11.5...v1.11.6) (2020-10-28)
 
 **Note:** Version bump only for package @opd/eslint-config-javascript
