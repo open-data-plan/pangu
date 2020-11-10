@@ -9,6 +9,7 @@ module.exports = {
   },
   extends: [
     'standard',
+    'standard-jsx',
     'standard-react',
     'plugin:prettier/recommended',
     'prettier/react',
@@ -29,11 +30,12 @@ module.exports = {
   plugins: ['react', 'react-hooks', 'prettier'],
   rules: {
     'prettier/prettier': 'error',
+    'standard/no-callback-literal': 'off',
+    'jsx-quotes': ['error', 'prefer-double'],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-curly-newline': 'off',
     'react/jsx-indent': 'off',
-    'standard/no-callback-literal': 'off',
     'react/jsx-handler-names': 'off',
   },
   settings: {

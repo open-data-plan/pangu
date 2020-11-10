@@ -7,7 +7,12 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: ['standard', 'standard-react', 'plugin:prettier/recommended'],
+  extends: [
+    'standard',
+    'standard-jsx',
+    'standard-react',
+    'plugin:prettier/recommended',
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -22,12 +27,13 @@ module.exports = {
   },
   plugins: ['react', 'react-hooks', 'prettier'],
   rules: {
+    'standard/no-callback-literal': 'off',
     'prettier/prettier': 'error',
+    'jsx-quotes': ['error', 'prefer-double'],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-curly-newline': 'off',
     'react/jsx-indent': 'off',
-    'standard/no-callback-literal': 'off',
     'react/jsx-handler-names': 'off',
   },
   settings: {
