@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/open-data-plan/pangu/compare/v1.12.1...v1.13.0) (2020-11-10)
+
+
+### Features
+
+* use CssMinimizerPlugin instead of OptimizeCssWebpackPlugin ([d1cfeaa](https://github.com/open-data-plan/pangu/commit/d1cfeaa5f8ab676ffbb3186e1e21fefdda667c65))
+
+
+
+
+
 ## [1.12.1](https://github.com/open-data-plan/pangu/compare/v1.12.0...v1.12.1) (2020-11-10)
 
 **Note:** Version bump only for package pangu

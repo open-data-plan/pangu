@@ -1,6 +1,6 @@
 {
   "name": "@opd/pangu",
-  "version": "1.12.1",
+  "version": "1.13.0",
   "description": "develop tool for pangu project",
   "keywords": [
     "cli",
