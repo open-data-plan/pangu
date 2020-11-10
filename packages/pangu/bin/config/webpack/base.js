@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs')
 const webpack = require('webpack')
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
 const WebpackBar = require('webpackbar')
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
@@ -191,13 +191,7 @@ const config = {
       new TerserWebpackPlugin({
         extractComments: false,
       }),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          map: {
-            inline: false,
-          },
-        },
-      }),
+      new CssMinimizerPlugin(),
     ],
     splitChunks: {
       chunks: 'all',
