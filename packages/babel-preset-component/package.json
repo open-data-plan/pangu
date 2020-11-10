@@ -1,6 +1,6 @@
 {
   "name": "@opd/babel-preset-component",
-  "version": "1.11.3",
+  "version": "1.12.1",
   "description": "babel preset used by react component in pangu",
   "main": "lib/index.js",
   "publishConfig": {
