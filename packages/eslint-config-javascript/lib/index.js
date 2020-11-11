@@ -1,5 +1,12 @@
 'use strict'
 
+let isReactExist = false
+
+try {
+  require('react')
+  isReactExist = true
+} catch (error) {}
+
 module.exports = {
   env: {
     browser: true,
@@ -9,10 +16,11 @@ module.exports = {
   },
   extends: [
     'standard',
-    'standard-jsx',
-    'standard-react',
+    isReactExist && 'standard-jsx',
+    isReactExist && 'standard-react',
     'plugin:prettier/recommended',
-  ],
+    isReactExist && 'prettier/react',
+  ].filter(Boolean),
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -25,20 +33,30 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', 'prettier'],
+  plugins: [
+    isReactExist && 'react',
+    isReactExist && 'react-hooks',
+    'prettier',
+  ].filter(Boolean),
   rules: {
     'standard/no-callback-literal': 'off',
     'prettier/prettier': 'error',
-    'jsx-quotes': ['error', 'prefer-double'],
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
-    'react/jsx-curly-newline': 'off',
-    'react/jsx-indent': 'off',
-    'react/jsx-handler-names': 'off',
+    ...(isReactExist
+      ? {
+          'jsx-quotes': ['error', 'prefer-double'],
+          'react-hooks/rules-of-hooks': 'error',
+          'react-hooks/exhaustive-deps': 'warn',
+          'react/jsx-curly-newline': 'off',
+          'react/jsx-indent': 'off',
+          'react/jsx-handler-names': 'off',
+        }
+      : {}),
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
+  settings: isReactExist
+    ? {
+        react: {
+          version: 'detect',
+        },
+      }
+    : {},
 }

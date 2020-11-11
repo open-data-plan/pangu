@@ -1,5 +1,21 @@
 'use strict'
 
+let isReactExist = false
+
+try {
+  require('react')
+  isReactExist = true
+} catch (error) {}
+
+const reactRules = {
+  'jsx-quotes': ['error', 'prefer-double'],
+  'react-hooks/rules-of-hooks': 'error',
+  'react-hooks/exhaustive-deps': 'warn',
+  'react/jsx-curly-newline': 'off',
+  'react/jsx-indent': 'off',
+  'react/jsx-handler-names': 'off',
+}
+
 module.exports = {
   env: {
     browser: true,
@@ -9,12 +25,12 @@ module.exports = {
   },
   extends: [
     'standard',
-    'standard-jsx',
-    'standard-react',
+    isReactExist && 'standard-jsx',
+    isReactExist && 'standard-react',
     'plugin:prettier/recommended',
-    'prettier/react',
+    isReactExist && 'prettier/react',
     'prettier/@typescript-eslint',
-  ],
+  ].filter(Boolean),
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -27,22 +43,23 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', 'prettier'],
+  plugins: [
+    isReactExist && 'react',
+    isReactExist && 'react-hooks',
+    'prettier',
+  ].filter(Boolean),
   rules: {
     'prettier/prettier': 'error',
     'standard/no-callback-literal': 'off',
-    'jsx-quotes': ['error', 'prefer-double'],
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
-    'react/jsx-curly-newline': 'off',
-    'react/jsx-indent': 'off',
-    'react/jsx-handler-names': 'off',
+    ...(isReactExist ? reactRules : {}),
   },
-  settings: {
-    react: {
-      version: 'detect',
-    },
-  },
+  settings: isReactExist
+    ? {
+        react: {
+          version: 'detect',
+        },
+      }
+    : {},
   overrides: [
     {
       files: ['**/*.ts?(x)'],
@@ -57,13 +74,20 @@ module.exports = {
       },
       extends: [
         'standard',
-        'standard-react',
+        isReactExist && 'standard-jsx',
+        isReactExist && 'standard-react',
         'prettier',
         'plugin:prettier/recommended',
+        isReactExist && 'prettier/react',
         'plugin:@typescript-eslint/recommended',
         'prettier/@typescript-eslint',
-      ],
-      plugins: ['react', 'react-hooks', 'prettier', '@typescript-eslint'],
+      ].filter(Boolean),
+      plugins: [
+        isReactExist && 'react',
+        isReactExist && 'react-hooks',
+        'prettier',
+        '@typescript-eslint',
+      ].filter(Boolean),
       rules: {
         // TypeScript's `noFallthroughCasesInSwitch` option is more robust (#6906)
         'default-case': 'off',
@@ -98,13 +122,17 @@ module.exports = {
         'no-useless-constructor': 'off',
         '@typescript-eslint/no-useless-constructor': 'warn',
         'prettier/prettier': 'error',
-        'react/prop-types': 'off',
-        'react-hooks/rules-of-hooks': 'error',
-        'react-hooks/exhaustive-deps': 'warn',
-        'react/jsx-curly-newline': 'off',
-        'react/jsx-indent': 'off',
+        ...(isReactExist
+          ? {
+              'react/prop-types': 'off',
+              'react-hooks/rules-of-hooks': 'error',
+              'react-hooks/exhaustive-deps': 'warn',
+              'react/jsx-curly-newline': 'off',
+              'react/jsx-indent': 'off',
+              'react/jsx-handler-names': 'off',
+            }
+          : {}),
         'standard/no-callback-literal': 'off',
-        'react/jsx-handler-names': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         '@typescript-eslint/member-delimiter-style': 'off',
