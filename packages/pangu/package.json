@@ -1,6 +1,6 @@
 {
   "name": "@opd/pangu",
-  "version": "1.13.1",
+  "version": "1.13.2",
   "description": "develop tool for pangu project",
   "keywords": [
     "cli",
@@ -34,7 +34,7 @@
   "dependencies": {
     "@opd/babel-preset-app": "^1.12.1",
     "@opd/css-modules-typings-loader": "^1.0.5",
-    "@opd/eslint-config-pangu": "^1.12.1",
+    "@opd/eslint-config-pangu": "^1.13.2",
     "@opd/jest-preset-pangu": "^1.12.1",
     "@opd/prettier-config-pangu": "^1.12.1",
     "@opd/stylelint-config-pangu": "^1.12.1",

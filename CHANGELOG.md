@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.2](https://github.com/open-data-plan/pangu/compare/v1.13.1...v1.13.2) (2020-11-11)
+
+
+### Bug Fixes
+
+* fix eslint-plugin-react conflict with none react pkg ([ec44750](https://github.com/open-data-plan/pangu/commit/ec447506ac2e0044ffd88b67585f2a7c4e51d260))
+
+
+
+
+
 ## [1.13.1](https://github.com/open-data-plan/pangu/compare/v1.13.0...v1.13.1) (2020-11-10)
 
 **Note:** Version bump only for package pangu
