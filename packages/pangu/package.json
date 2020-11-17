@@ -1,6 +1,6 @@
 {
   "name": "@opd/pangu",
-  "version": "1.13.2",
+  "version": "1.13.3",
   "description": "develop tool for pangu project",
   "keywords": [
     "cli",
@@ -32,12 +32,12 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@opd/babel-preset-app": "^1.12.1",
+    "@opd/babel-preset-app": "^1.13.3",
     "@opd/css-modules-typings-loader": "^1.0.5",
-    "@opd/eslint-config-pangu": "^1.13.2",
-    "@opd/jest-preset-pangu": "^1.12.1",
-    "@opd/prettier-config-pangu": "^1.12.1",
-    "@opd/stylelint-config-pangu": "^1.12.1",
+    "@opd/eslint-config-pangu": "^1.13.3",
+    "@opd/jest-preset-pangu": "^1.13.3",
+    "@opd/prettier-config-pangu": "^1.13.3",
+    "@opd/stylelint-config-pangu": "^1.13.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.4.2",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.1",

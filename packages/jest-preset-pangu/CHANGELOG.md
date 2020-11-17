@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.3](https://github.com/open-data-plan/pangu/compare/v1.13.2...v1.13.3) (2020-11-17)
+
+**Note:** Version bump only for package @opd/jest-preset-pangu
+
+
+
+
+
 ## [1.12.1](https://github.com/open-data-plan/pangu/compare/v1.12.0...v1.12.1) (2020-11-10)
 
 **Note:** Version bump only for package @opd/jest-preset-pangu
