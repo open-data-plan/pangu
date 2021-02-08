@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.5](https://github.com/open-data-plan/pangu/compare/v1.13.4...v1.13.5) (2021-02-08)
+
+**Note:** Version bump only for package @opd/babel-preset-lib
+
 ## [1.13.4](https://github.com/open-data-plan/pangu/compare/v1.13.3...v1.13.4) (2021-01-26)
 
 **Note:** Version bump only for package @opd/babel-preset-lib

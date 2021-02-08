@@ -1,6 +1,6 @@
 {
   "name": "@opd/jest-preset-pangu",
-  "version": "1.13.4",
+  "version": "1.13.5",
   "description": "jest preset config used in pangu",
   "keywords": [
     "jest",
