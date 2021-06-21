@@ -88,6 +88,7 @@ const config = {
     app: path.resolve(srcDir, 'index.tsx'),
   },
   output: {
+    clean: true,
     publicPath,
     path: outputDir,
     filename: PRODUCT ? '[name].[contenthash].js' : '[name].js',

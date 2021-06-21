@@ -5,7 +5,6 @@ process.env.NODE_ENV = 'production'
 const program = require('commander')
 const webpack = require('webpack')
 const webpackConfig = require('./config/webpack')
-const rimraf = require('rimraf')
 const signale = require('signale')
 const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages')
 const printBuildError = require('react-dev-utils/printBuildError')
@@ -24,13 +23,7 @@ program
   .option('--ts-check', 'check typescript')
   .parse(process.argv)
 
-signale.info('Clean build output dir\n')
-// clean dist first
-rimraf.sync(`${webpackConfig.output.path}/*`)
-
 const compiler = webpack(webpackConfig)
-
-signale.info('Compile start')
 
 // create compiler
 compiler.run((err, stats) => {
