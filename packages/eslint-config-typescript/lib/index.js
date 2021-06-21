@@ -28,8 +28,6 @@ module.exports = {
     isReactExist && 'standard-jsx',
     isReactExist && 'standard-react',
     'plugin:prettier/recommended',
-    isReactExist && 'prettier/react',
-    'prettier/@typescript-eslint',
   ].filter(Boolean),
   globals: {
     Atomics: 'readonly',
@@ -78,9 +76,7 @@ module.exports = {
         isReactExist && 'standard-react',
         'prettier',
         'plugin:prettier/recommended',
-        isReactExist && 'prettier/react',
         'plugin:@typescript-eslint/recommended',
-        'prettier/@typescript-eslint',
       ].filter(Boolean),
       plugins: [
         isReactExist && 'react',

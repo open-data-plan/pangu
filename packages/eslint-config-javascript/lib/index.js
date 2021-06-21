@@ -19,7 +19,6 @@ module.exports = {
     isReactExist && 'standard-jsx',
     isReactExist && 'standard-react',
     'plugin:prettier/recommended',
-    isReactExist && 'prettier/react',
   ].filter(Boolean),
   globals: {
     Atomics: 'readonly',
