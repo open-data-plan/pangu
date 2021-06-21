@@ -1,6 +1,6 @@
 {
   "name": "@opd/babel-preset-lib",
-  "version": "1.13.5",
+  "version": "1.13.6",
   "description": "babel preset used by ts lib in pangu",
   "main": "lib/index.js",
   "publishConfig": {
