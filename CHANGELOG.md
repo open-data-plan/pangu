@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.7](https://github.com/open-data-plan/pangu/compare/v1.13.6...v1.13.7) (2021-06-21)
+
+
+### Bug Fixes
+
+* fix eslint config ([3a77743](https://github.com/open-data-plan/pangu/commit/3a7774326a070a0fa112c2817297296b9d0bf5c8))
+
+
+
+
+
 ## [1.13.6](https://github.com/open-data-plan/pangu/compare/v1.13.5...v1.13.6) (2021-06-21)
 
 **Note:** Version bump only for package pangu
