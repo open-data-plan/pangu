@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.8](https://github.com/open-data-plan/pangu/compare/v1.13.7...v1.13.8) (2021-06-21)
+
+
+### Bug Fixes
+
+* try add polyfill ([80d7a3f](https://github.com/open-data-plan/pangu/commit/80d7a3f76aab983cabd40676305fa78a04eeaff1))
+
+
+
+
+
 ## [1.13.7](https://github.com/open-data-plan/pangu/compare/v1.13.6...v1.13.7) (2021-06-21)
 
 
