@@ -1,13 +1,11 @@
 const templates = {
   desktop: {
     default: {
-      url:
-        'https://github.com/open-data-plan/desktop-template/archive/master.zip',
+      url: 'https://github.com/open-data-plan/desktop-template/archive/master.zip',
       des: 'SPA - single page application',
     },
     simple: {
-      url:
-        'https://github.com/open-data-plan/desktop-template/archive/simple.zip',
+      url: 'https://github.com/open-data-plan/desktop-template/archive/simple.zip',
       des: 'simple - simple react application',
     },
     mpa: {
@@ -17,13 +15,11 @@ const templates = {
   },
   mobile: {
     default: {
-      url:
-        'https://github.com/open-data-plan/mobile-template/archive/master.zip',
+      url: 'https://github.com/open-data-plan/mobile-template/archive/master.zip',
       des: 'SPA - single page application',
     },
     simple: {
-      url:
-        'https://github.com/open-data-plan/mobile-template/archive/simple.zip',
+      url: 'https://github.com/open-data-plan/mobile-template/archive/simple.zip',
       des: 'simple - simple react application',
     },
     mpa: {
@@ -33,13 +29,11 @@ const templates = {
   },
   component: {
     default: {
-      url:
-        'https://github.com/open-data-plan/component-template/archive/master.zip',
+      url: 'https://github.com/open-data-plan/component-template/archive/master.zip',
       des: 'Individual component template',
     },
     lerna: {
-      url:
-        'https://github.com/open-data-plan/component-template/archive/lerna.zip',
+      url: 'https://github.com/open-data-plan/component-template/archive/lerna.zip',
       des: 'Template for mono repo',
     },
   },
