@@ -8,8 +8,7 @@
   ],
   "scripts": {
     "test": "jest",
-    "lint": "eslint ./packages --ext=.js",
-    "lint:fix": "eslint ./packages --ext=.js --fix",
+    "lint": "eslint ./packages --ext=.js,.ts  --fix",
     "release": "lerna publish --conventional-commits --yes",
     "build": "lerna run build"
   },
@@ -25,24 +24,27 @@
   "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
   "license": "MIT",
   "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "@opd/eslint-config-pangu": "file:./packages/eslint-config-pangu",
     "@opd/prettier-config-pangu": "file:./packages/prettier-config-pangu",
-    "husky": "^8.0.1",
-    "lerna": "^5.4.0",
-    "lint-staged": "^13.0.3"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "@opd/stylelint-config-pangu": "file:./packages/stylelint-config-pangu",
+    "@types/node": "^20.9.3",
+    "husky": "^8.0.3",
+    "lerna": "^7.4.2",
+    "lint-staged": "^15.1.0",
+    "typescript": "^5.3.2"
   },
   "lint-staged": {
-    "*.js": [
+    "*.{js,ts}": [
       "eslint --fix"
     ],
     "*.{json,md}": [
       "prettier --write"
     ]
   },
-  "prettier": "@opd/prettier-config-pangu"
+  "prettier": "@opd/prettier-config-pangu",
+  "stylelint": {
+    "extends": "@opd/stylelint-config-pangu"
+  }
 }
