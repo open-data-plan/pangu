@@ -1,17 +1,9 @@
 # Pangu
 
-> CLI/Preset/Config
+> Linter and Prettier Preset/Config
 
 ## Use
 
-### Init Project
-
-> see [create-pangu](./packages/create-pangu)
-
-### Develop Project
-
-> see [pangu](./packages/pangu)
-
-### Build Project
-
-> see [pangu](./packages/pangu)
+- `@opd/eslint-config-pangu`
+- `@opd/prettier-config-pangu`
+- `@opd/stylelint-config-pangu`
