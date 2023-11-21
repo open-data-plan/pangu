@@ -20,9 +20,11 @@
     "url": "git@github.com:open-data-plan/pangu.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "tsc",
+    "preversion": "npm run build"
   },
   "dependencies": {
-    "prettier": "^2.3.1"
+    "prettier": "^3.0.0"
   }
 }
