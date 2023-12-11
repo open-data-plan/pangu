@@ -1,9 +1,9 @@
 {
-  "name": "@opd/stylelint-config-pangu",
+  "name": "@opd/stylelint-config",
   "version": "1.14.0",
   "description": "stylelint config used by pangu",
   "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
-  "homepage": "https://github.com/open-data-plan/pangu/packages/stylelint-config-pangu",
+  "homepage": "https://github.com/open-data-plan/pangu/packages/stylelint-config",
   "license": "MIT",
   "main": "lib/index.js",
   "directories": {
@@ -35,8 +35,8 @@
     "postcss-scss": "^4.0.4",
     "postcss-syntax": "^0.36.2",
     "prettier": "^3.1.0",
-    "stylelint": "^15.6.2",
-    "stylelint-config-standard": "^34.0.0",
-    "stylelint-prettier": "^4.0.0"
+    "stylelint": "^16.0.1",
+    "stylelint-config-standard": "^35.0.0",
+    "stylelint-prettier": "^5.0.0"
   }
 }

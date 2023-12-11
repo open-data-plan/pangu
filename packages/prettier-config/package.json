@@ -1,9 +1,9 @@
 {
-  "name": "@opd/prettier-config-pangu",
+  "name": "@opd/prettier-config",
   "version": "1.14.0",
   "description": "prettier config used by react app in pangu",
   "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
-  "homepage": "https://github.com/open-data-plan/pangu/packages/prettier-config-pangu",
+  "homepage": "https://github.com/open-data-plan/pangu/packages/prettier-config",
   "license": "MIT",
   "main": "lib/index.js",
   "directories": {

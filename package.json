@@ -26,9 +26,9 @@
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",
-    "@opd/eslint-config-pangu": "file:./packages/eslint-config-pangu",
-    "@opd/prettier-config-pangu": "file:./packages/prettier-config-pangu",
-    "@opd/stylelint-config-pangu": "file:./packages/stylelint-config-pangu",
+    "@opd/eslint-config": "file:./packages/eslint-config",
+    "@opd/prettier-config": "file:./packages/prettier-config",
+    "@opd/stylelint-config": "file:./packages/stylelint-config",
     "@types/node": "^20.9.3",
     "husky": "^8.0.3",
     "lerna": "^8.0.0",
@@ -43,8 +43,8 @@
       "prettier --write"
     ]
   },
-  "prettier": "@opd/prettier-config-pangu",
+  "prettier": "@opd/prettier-config",
   "stylelint": {
-    "extends": "@opd/stylelint-config-pangu"
+    "extends": "@opd/stylelint-config"
   }
 }

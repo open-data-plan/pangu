@@ -1,17 +1,17 @@
-# `@opd/prettier-config-pangu`
+# `@opd/prettier-config`
 
 > prettier config used by react app in pangu
 
 ## Usage
 
 ```bash
-npm install @opd/prettier-config-pangu -D
+npm install @opd/prettier-config -D
 ```
 
 add `prettier` field in `package.json`
 
 ```json
 {
-  "prettier": "@opd/prettier-config-pangu"
+  "prettier": "@opd/prettier-config"
 }
 ```

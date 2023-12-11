@@ -4,6 +4,6 @@
 
 ## Use
 
-- `@opd/eslint-config-pangu`
-- `@opd/prettier-config-pangu`
-- `@opd/stylelint-config-pangu`
+- `@opd/eslint-config`
+- `@opd/prettier-config`
+- `@opd/stylelint-config`
