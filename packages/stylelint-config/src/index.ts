@@ -1,3 +1,4 @@
+import postcssHtml from 'postcss-html'
 import { Config } from 'stylelint'
 
 const stylelintConfig: Config = {
@@ -23,7 +24,10 @@ const stylelintConfig: Config = {
     },
     {
       files: ['**/*.vue', '**/*.html'],
-      customSyntax: 'postcss-html',
+      customSyntax: postcssHtml({
+        less: require('postcss-less'),
+        scss: require('postcss-scss'),
+      }),
     },
     {
       files: ['**/*.md'],
