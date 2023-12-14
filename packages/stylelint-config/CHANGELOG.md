@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.1](https://github.com/open-data-plan/pangu/compare/v2.0.0...v2.0.1) (2023-12-14)
+
+**Note:** Version bump only for package @opd/stylelint-config
+
 # [1.14.0](https://github.com/open-data-plan/pangu/compare/v1.13.8...v1.14.0) (2023-11-21)
 
 ### Features

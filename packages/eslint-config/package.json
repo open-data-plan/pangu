@@ -1,6 +1,6 @@
 {
   "name": "@opd/eslint-config",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "eslint config used by react app in pangu",
   "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
   "homepage": "https://github.com/open-data-plan/pangu/packages/eslint-config",
