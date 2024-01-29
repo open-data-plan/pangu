@@ -31,7 +31,7 @@
     "@opd/stylelint-config": "file:./packages/stylelint-config",
     "@types/node": "^20.9.3",
     "@types/postcss-html": "^1.5.3",
-    "husky": "^8.0.3",
+    "husky": "^9.0.6",
     "lerna": "^8.0.0",
     "lint-staged": "^15.1.0",
     "typescript": "^5.3.2"
