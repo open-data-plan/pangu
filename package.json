@@ -24,7 +24,7 @@
   "author": "kagawagao <kingsongao1221@gmail.com> (https://kingsongao.com/)",
   "license": "MIT",
   "devDependencies": {
-    "@commitlint/cli": "^18.4.3",
+    "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^18.4.3",
     "@opd/eslint-config": "file:./packages/eslint-config",
     "@opd/prettier-config": "file:./packages/prettier-config",
