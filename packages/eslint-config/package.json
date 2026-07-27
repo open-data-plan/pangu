@@ -41,7 +41,7 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-unicorn": "^72.0.0",
     "eslint-plugin-vue": "^10.10.0",
-    "prettier": "^3.9.5",
+    "prettier": "^3.9.6",
     "typescript": "^7.0.2",
     "vue-eslint-parser": "^10.4.1"
   }
